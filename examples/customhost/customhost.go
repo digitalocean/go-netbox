@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/netbox-community/go-netbox/netbox/client"
+	client "github.com/netbox-community/go-netbox/plumbing"
 )
 
 func main() {
