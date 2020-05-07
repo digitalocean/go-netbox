@@ -23,14 +23,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // PowerPort power port
+//
 // swagger:model PowerPort
 type PowerPort struct {
 
@@ -309,6 +309,7 @@ func (m *PowerPort) UnmarshalBinary(b []byte) error {
 }
 
 // PowerPortConnectionStatus Connection status
+//
 // swagger:model PowerPortConnectionStatus
 type PowerPortConnectionStatus struct {
 
@@ -376,6 +377,7 @@ func (m *PowerPortConnectionStatus) UnmarshalBinary(b []byte) error {
 }
 
 // PowerPortType Type
+//
 // swagger:model PowerPortType
 type PowerPortType struct {
 

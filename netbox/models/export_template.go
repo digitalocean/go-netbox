@@ -23,14 +23,14 @@ package models
 import (
 	"encoding/json"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // ExportTemplate export template
+//
 // swagger:model ExportTemplate
 type ExportTemplate struct {
 
@@ -228,6 +228,7 @@ func (m *ExportTemplate) UnmarshalBinary(b []byte) error {
 }
 
 // ExportTemplateTemplateLanguage Template language
+//
 // swagger:model ExportTemplateTemplateLanguage
 type ExportTemplateTemplateLanguage struct {
 

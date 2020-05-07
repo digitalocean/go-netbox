@@ -23,14 +23,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // VirtualMachineWithConfigContext virtual machine with config context
+//
 // swagger:model VirtualMachineWithConfigContext
 type VirtualMachineWithConfigContext struct {
 
@@ -480,6 +480,7 @@ func (m *VirtualMachineWithConfigContext) UnmarshalBinary(b []byte) error {
 }
 
 // VirtualMachineWithConfigContextStatus Status
+//
 // swagger:model VirtualMachineWithConfigContextStatus
 type VirtualMachineWithConfigContextStatus struct {
 

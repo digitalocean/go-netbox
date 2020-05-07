@@ -21,14 +21,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // PowerPortTemplate power port template
+//
 // swagger:model PowerPortTemplate
 type PowerPortTemplate struct {
 
@@ -200,6 +200,7 @@ func (m *PowerPortTemplate) UnmarshalBinary(b []byte) error {
 }
 
 // PowerPortTemplateType Type
+//
 // swagger:model PowerPortTemplateType
 type PowerPortTemplateType struct {
 

@@ -23,14 +23,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // ConsolePort console port
+//
 // swagger:model ConsolePort
 type ConsolePort struct {
 
@@ -253,6 +253,7 @@ func (m *ConsolePort) UnmarshalBinary(b []byte) error {
 }
 
 // ConsolePortConnectionStatus Connection status
+//
 // swagger:model ConsolePortConnectionStatus
 type ConsolePortConnectionStatus struct {
 
@@ -320,6 +321,7 @@ func (m *ConsolePortConnectionStatus) UnmarshalBinary(b []byte) error {
 }
 
 // ConsolePortType Type
+//
 // swagger:model ConsolePortType
 type ConsolePortType struct {
 

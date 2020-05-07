@@ -24,14 +24,14 @@ import (
 	"encoding/json"
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // VirtualMachineInterface virtual machine interface
+//
 // swagger:model VirtualMachineInterface
 type VirtualMachineInterface struct {
 
@@ -311,6 +311,7 @@ func (m *VirtualMachineInterface) UnmarshalBinary(b []byte) error {
 }
 
 // VirtualMachineInterfaceMode Mode
+//
 // swagger:model VirtualMachineInterfaceMode
 type VirtualMachineInterfaceMode struct {
 
@@ -378,6 +379,7 @@ func (m *VirtualMachineInterfaceMode) UnmarshalBinary(b []byte) error {
 }
 
 // VirtualMachineInterfaceType Type
+//
 // swagger:model VirtualMachineInterfaceType
 type VirtualMachineInterfaceType struct {
 

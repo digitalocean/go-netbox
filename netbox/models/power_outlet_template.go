@@ -21,14 +21,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // PowerOutletTemplate power outlet template
+//
 // swagger:model PowerOutletTemplate
 type PowerOutletTemplate struct {
 
@@ -194,6 +194,7 @@ func (m *PowerOutletTemplate) UnmarshalBinary(b []byte) error {
 }
 
 // PowerOutletTemplateFeedLeg Feed leg
+//
 // swagger:model PowerOutletTemplateFeedLeg
 type PowerOutletTemplateFeedLeg struct {
 
@@ -261,6 +262,7 @@ func (m *PowerOutletTemplateFeedLeg) UnmarshalBinary(b []byte) error {
 }
 
 // PowerOutletTemplateType Type
+//
 // swagger:model PowerOutletTemplateType
 type PowerOutletTemplateType struct {
 

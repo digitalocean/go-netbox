@@ -23,14 +23,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // DeviceWithConfigContext device with config context
+//
 // swagger:model DeviceWithConfigContext
 type DeviceWithConfigContext struct {
 
@@ -48,7 +48,7 @@ type DeviceWithConfigContext struct {
 
 	// Config context
 	// Read Only: true
-	ConfigContext map[string]string `json:"config_context,omitempty"`
+	ConfigContext interface{} `json:"config_context,omitempty"`
 
 	// Created
 	// Read Only: true
@@ -651,6 +651,7 @@ func (m *DeviceWithConfigContext) UnmarshalBinary(b []byte) error {
 }
 
 // DeviceWithConfigContextFace Face
+//
 // swagger:model DeviceWithConfigContextFace
 type DeviceWithConfigContextFace struct {
 
@@ -718,6 +719,7 @@ func (m *DeviceWithConfigContextFace) UnmarshalBinary(b []byte) error {
 }
 
 // DeviceWithConfigContextStatus Status
+//
 // swagger:model DeviceWithConfigContextStatus
 type DeviceWithConfigContextStatus struct {
 

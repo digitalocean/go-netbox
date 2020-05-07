@@ -23,14 +23,14 @@ package models
 import (
 	"encoding/json"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // CircuitTermination circuit termination
+//
 // swagger:model CircuitTermination
 type CircuitTermination struct {
 
@@ -352,6 +352,7 @@ func (m *CircuitTermination) UnmarshalBinary(b []byte) error {
 }
 
 // CircuitTerminationConnectionStatus Connection status
+//
 // swagger:model CircuitTerminationConnectionStatus
 type CircuitTerminationConnectionStatus struct {
 

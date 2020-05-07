@@ -24,12 +24,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new dcim API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -41,8 +40,431 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientService is the interface for Client methods
+type ClientService interface {
+	DcimChoicesList(params *DcimChoicesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimChoicesListOK, error)
+
+	DcimChoicesRead(params *DcimChoicesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimChoicesReadOK, error)
+
+	DcimCablesCreate(params *DcimCablesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesCreateCreated, error)
+
+	DcimCablesDelete(params *DcimCablesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesDeleteNoContent, error)
+
+	DcimCablesList(params *DcimCablesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesListOK, error)
+
+	DcimCablesPartialUpdate(params *DcimCablesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesPartialUpdateOK, error)
+
+	DcimCablesRead(params *DcimCablesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesReadOK, error)
+
+	DcimCablesUpdate(params *DcimCablesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesUpdateOK, error)
+
+	DcimConnectedDeviceList(params *DcimConnectedDeviceListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConnectedDeviceListOK, error)
+
+	DcimConsoleConnectionsList(params *DcimConsoleConnectionsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleConnectionsListOK, error)
+
+	DcimConsolePortTemplatesCreate(params *DcimConsolePortTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesCreateCreated, error)
+
+	DcimConsolePortTemplatesDelete(params *DcimConsolePortTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesDeleteNoContent, error)
+
+	DcimConsolePortTemplatesList(params *DcimConsolePortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesListOK, error)
+
+	DcimConsolePortTemplatesPartialUpdate(params *DcimConsolePortTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesPartialUpdateOK, error)
+
+	DcimConsolePortTemplatesRead(params *DcimConsolePortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesReadOK, error)
+
+	DcimConsolePortTemplatesUpdate(params *DcimConsolePortTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesUpdateOK, error)
+
+	DcimConsolePortsCreate(params *DcimConsolePortsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsCreateCreated, error)
+
+	DcimConsolePortsDelete(params *DcimConsolePortsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsDeleteNoContent, error)
+
+	DcimConsolePortsList(params *DcimConsolePortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsListOK, error)
+
+	DcimConsolePortsPartialUpdate(params *DcimConsolePortsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsPartialUpdateOK, error)
+
+	DcimConsolePortsRead(params *DcimConsolePortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsReadOK, error)
+
+	DcimConsolePortsTrace(params *DcimConsolePortsTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsTraceOK, error)
+
+	DcimConsolePortsUpdate(params *DcimConsolePortsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsUpdateOK, error)
+
+	DcimConsoleServerPortTemplatesCreate(params *DcimConsoleServerPortTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesCreateCreated, error)
+
+	DcimConsoleServerPortTemplatesDelete(params *DcimConsoleServerPortTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesDeleteNoContent, error)
+
+	DcimConsoleServerPortTemplatesList(params *DcimConsoleServerPortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesListOK, error)
+
+	DcimConsoleServerPortTemplatesPartialUpdate(params *DcimConsoleServerPortTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesPartialUpdateOK, error)
+
+	DcimConsoleServerPortTemplatesRead(params *DcimConsoleServerPortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesReadOK, error)
+
+	DcimConsoleServerPortTemplatesUpdate(params *DcimConsoleServerPortTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesUpdateOK, error)
+
+	DcimConsoleServerPortsCreate(params *DcimConsoleServerPortsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsCreateCreated, error)
+
+	DcimConsoleServerPortsDelete(params *DcimConsoleServerPortsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsDeleteNoContent, error)
+
+	DcimConsoleServerPortsList(params *DcimConsoleServerPortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsListOK, error)
+
+	DcimConsoleServerPortsPartialUpdate(params *DcimConsoleServerPortsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsPartialUpdateOK, error)
+
+	DcimConsoleServerPortsRead(params *DcimConsoleServerPortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsReadOK, error)
+
+	DcimConsoleServerPortsTrace(params *DcimConsoleServerPortsTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsTraceOK, error)
+
+	DcimConsoleServerPortsUpdate(params *DcimConsoleServerPortsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsUpdateOK, error)
+
+	DcimDeviceBayTemplatesCreate(params *DcimDeviceBayTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesCreateCreated, error)
+
+	DcimDeviceBayTemplatesDelete(params *DcimDeviceBayTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesDeleteNoContent, error)
+
+	DcimDeviceBayTemplatesList(params *DcimDeviceBayTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesListOK, error)
+
+	DcimDeviceBayTemplatesPartialUpdate(params *DcimDeviceBayTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesPartialUpdateOK, error)
+
+	DcimDeviceBayTemplatesRead(params *DcimDeviceBayTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesReadOK, error)
+
+	DcimDeviceBayTemplatesUpdate(params *DcimDeviceBayTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesUpdateOK, error)
+
+	DcimDeviceBaysCreate(params *DcimDeviceBaysCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysCreateCreated, error)
+
+	DcimDeviceBaysDelete(params *DcimDeviceBaysDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysDeleteNoContent, error)
+
+	DcimDeviceBaysList(params *DcimDeviceBaysListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysListOK, error)
+
+	DcimDeviceBaysPartialUpdate(params *DcimDeviceBaysPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysPartialUpdateOK, error)
+
+	DcimDeviceBaysRead(params *DcimDeviceBaysReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysReadOK, error)
+
+	DcimDeviceBaysUpdate(params *DcimDeviceBaysUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysUpdateOK, error)
+
+	DcimDeviceRolesCreate(params *DcimDeviceRolesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesCreateCreated, error)
+
+	DcimDeviceRolesDelete(params *DcimDeviceRolesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesDeleteNoContent, error)
+
+	DcimDeviceRolesList(params *DcimDeviceRolesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesListOK, error)
+
+	DcimDeviceRolesPartialUpdate(params *DcimDeviceRolesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesPartialUpdateOK, error)
+
+	DcimDeviceRolesRead(params *DcimDeviceRolesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesReadOK, error)
+
+	DcimDeviceRolesUpdate(params *DcimDeviceRolesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesUpdateOK, error)
+
+	DcimDeviceTypesCreate(params *DcimDeviceTypesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesCreateCreated, error)
+
+	DcimDeviceTypesDelete(params *DcimDeviceTypesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesDeleteNoContent, error)
+
+	DcimDeviceTypesList(params *DcimDeviceTypesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesListOK, error)
+
+	DcimDeviceTypesPartialUpdate(params *DcimDeviceTypesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesPartialUpdateOK, error)
+
+	DcimDeviceTypesRead(params *DcimDeviceTypesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesReadOK, error)
+
+	DcimDeviceTypesUpdate(params *DcimDeviceTypesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesUpdateOK, error)
+
+	DcimDevicesCreate(params *DcimDevicesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesCreateCreated, error)
+
+	DcimDevicesDelete(params *DcimDevicesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesDeleteNoContent, error)
+
+	DcimDevicesGraphs(params *DcimDevicesGraphsParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesGraphsOK, error)
+
+	DcimDevicesList(params *DcimDevicesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesListOK, error)
+
+	DcimDevicesNapalm(params *DcimDevicesNapalmParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesNapalmOK, error)
+
+	DcimDevicesPartialUpdate(params *DcimDevicesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesPartialUpdateOK, error)
+
+	DcimDevicesRead(params *DcimDevicesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesReadOK, error)
+
+	DcimDevicesUpdate(params *DcimDevicesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesUpdateOK, error)
+
+	DcimFrontPortTemplatesCreate(params *DcimFrontPortTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesCreateCreated, error)
+
+	DcimFrontPortTemplatesDelete(params *DcimFrontPortTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesDeleteNoContent, error)
+
+	DcimFrontPortTemplatesList(params *DcimFrontPortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesListOK, error)
+
+	DcimFrontPortTemplatesPartialUpdate(params *DcimFrontPortTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesPartialUpdateOK, error)
+
+	DcimFrontPortTemplatesRead(params *DcimFrontPortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesReadOK, error)
+
+	DcimFrontPortTemplatesUpdate(params *DcimFrontPortTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesUpdateOK, error)
+
+	DcimFrontPortsCreate(params *DcimFrontPortsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsCreateCreated, error)
+
+	DcimFrontPortsDelete(params *DcimFrontPortsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsDeleteNoContent, error)
+
+	DcimFrontPortsList(params *DcimFrontPortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsListOK, error)
+
+	DcimFrontPortsPartialUpdate(params *DcimFrontPortsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsPartialUpdateOK, error)
+
+	DcimFrontPortsRead(params *DcimFrontPortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsReadOK, error)
+
+	DcimFrontPortsUpdate(params *DcimFrontPortsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsUpdateOK, error)
+
+	DcimInterfaceConnectionsList(params *DcimInterfaceConnectionsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceConnectionsListOK, error)
+
+	DcimInterfaceTemplatesCreate(params *DcimInterfaceTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesCreateCreated, error)
+
+	DcimInterfaceTemplatesDelete(params *DcimInterfaceTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesDeleteNoContent, error)
+
+	DcimInterfaceTemplatesList(params *DcimInterfaceTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesListOK, error)
+
+	DcimInterfaceTemplatesPartialUpdate(params *DcimInterfaceTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesPartialUpdateOK, error)
+
+	DcimInterfaceTemplatesRead(params *DcimInterfaceTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesReadOK, error)
+
+	DcimInterfaceTemplatesUpdate(params *DcimInterfaceTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesUpdateOK, error)
+
+	DcimInterfacesCreate(params *DcimInterfacesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesCreateCreated, error)
+
+	DcimInterfacesDelete(params *DcimInterfacesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesDeleteNoContent, error)
+
+	DcimInterfacesGraphs(params *DcimInterfacesGraphsParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesGraphsOK, error)
+
+	DcimInterfacesList(params *DcimInterfacesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesListOK, error)
+
+	DcimInterfacesPartialUpdate(params *DcimInterfacesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesPartialUpdateOK, error)
+
+	DcimInterfacesRead(params *DcimInterfacesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesReadOK, error)
+
+	DcimInterfacesTrace(params *DcimInterfacesTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesTraceOK, error)
+
+	DcimInterfacesUpdate(params *DcimInterfacesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesUpdateOK, error)
+
+	DcimInventoryItemsCreate(params *DcimInventoryItemsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsCreateCreated, error)
+
+	DcimInventoryItemsDelete(params *DcimInventoryItemsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsDeleteNoContent, error)
+
+	DcimInventoryItemsList(params *DcimInventoryItemsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsListOK, error)
+
+	DcimInventoryItemsPartialUpdate(params *DcimInventoryItemsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsPartialUpdateOK, error)
+
+	DcimInventoryItemsRead(params *DcimInventoryItemsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsReadOK, error)
+
+	DcimInventoryItemsUpdate(params *DcimInventoryItemsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsUpdateOK, error)
+
+	DcimManufacturersCreate(params *DcimManufacturersCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersCreateCreated, error)
+
+	DcimManufacturersDelete(params *DcimManufacturersDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersDeleteNoContent, error)
+
+	DcimManufacturersList(params *DcimManufacturersListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersListOK, error)
+
+	DcimManufacturersPartialUpdate(params *DcimManufacturersPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersPartialUpdateOK, error)
+
+	DcimManufacturersRead(params *DcimManufacturersReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersReadOK, error)
+
+	DcimManufacturersUpdate(params *DcimManufacturersUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersUpdateOK, error)
+
+	DcimPlatformsCreate(params *DcimPlatformsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsCreateCreated, error)
+
+	DcimPlatformsDelete(params *DcimPlatformsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsDeleteNoContent, error)
+
+	DcimPlatformsList(params *DcimPlatformsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsListOK, error)
+
+	DcimPlatformsPartialUpdate(params *DcimPlatformsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsPartialUpdateOK, error)
+
+	DcimPlatformsRead(params *DcimPlatformsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsReadOK, error)
+
+	DcimPlatformsUpdate(params *DcimPlatformsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsUpdateOK, error)
+
+	DcimPowerConnectionsList(params *DcimPowerConnectionsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerConnectionsListOK, error)
+
+	DcimPowerFeedsCreate(params *DcimPowerFeedsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsCreateCreated, error)
+
+	DcimPowerFeedsDelete(params *DcimPowerFeedsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsDeleteNoContent, error)
+
+	DcimPowerFeedsList(params *DcimPowerFeedsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsListOK, error)
+
+	DcimPowerFeedsPartialUpdate(params *DcimPowerFeedsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsPartialUpdateOK, error)
+
+	DcimPowerFeedsRead(params *DcimPowerFeedsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsReadOK, error)
+
+	DcimPowerFeedsUpdate(params *DcimPowerFeedsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsUpdateOK, error)
+
+	DcimPowerOutletTemplatesCreate(params *DcimPowerOutletTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesCreateCreated, error)
+
+	DcimPowerOutletTemplatesDelete(params *DcimPowerOutletTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesDeleteNoContent, error)
+
+	DcimPowerOutletTemplatesList(params *DcimPowerOutletTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesListOK, error)
+
+	DcimPowerOutletTemplatesPartialUpdate(params *DcimPowerOutletTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesPartialUpdateOK, error)
+
+	DcimPowerOutletTemplatesRead(params *DcimPowerOutletTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesReadOK, error)
+
+	DcimPowerOutletTemplatesUpdate(params *DcimPowerOutletTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesUpdateOK, error)
+
+	DcimPowerOutletsCreate(params *DcimPowerOutletsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsCreateCreated, error)
+
+	DcimPowerOutletsDelete(params *DcimPowerOutletsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsDeleteNoContent, error)
+
+	DcimPowerOutletsList(params *DcimPowerOutletsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsListOK, error)
+
+	DcimPowerOutletsPartialUpdate(params *DcimPowerOutletsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsPartialUpdateOK, error)
+
+	DcimPowerOutletsRead(params *DcimPowerOutletsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsReadOK, error)
+
+	DcimPowerOutletsTrace(params *DcimPowerOutletsTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsTraceOK, error)
+
+	DcimPowerOutletsUpdate(params *DcimPowerOutletsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsUpdateOK, error)
+
+	DcimPowerPanelsCreate(params *DcimPowerPanelsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsCreateCreated, error)
+
+	DcimPowerPanelsDelete(params *DcimPowerPanelsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsDeleteNoContent, error)
+
+	DcimPowerPanelsList(params *DcimPowerPanelsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsListOK, error)
+
+	DcimPowerPanelsPartialUpdate(params *DcimPowerPanelsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsPartialUpdateOK, error)
+
+	DcimPowerPanelsRead(params *DcimPowerPanelsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsReadOK, error)
+
+	DcimPowerPanelsUpdate(params *DcimPowerPanelsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsUpdateOK, error)
+
+	DcimPowerPortTemplatesCreate(params *DcimPowerPortTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesCreateCreated, error)
+
+	DcimPowerPortTemplatesDelete(params *DcimPowerPortTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesDeleteNoContent, error)
+
+	DcimPowerPortTemplatesList(params *DcimPowerPortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesListOK, error)
+
+	DcimPowerPortTemplatesPartialUpdate(params *DcimPowerPortTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesPartialUpdateOK, error)
+
+	DcimPowerPortTemplatesRead(params *DcimPowerPortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesReadOK, error)
+
+	DcimPowerPortTemplatesUpdate(params *DcimPowerPortTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesUpdateOK, error)
+
+	DcimPowerPortsCreate(params *DcimPowerPortsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsCreateCreated, error)
+
+	DcimPowerPortsDelete(params *DcimPowerPortsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsDeleteNoContent, error)
+
+	DcimPowerPortsList(params *DcimPowerPortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsListOK, error)
+
+	DcimPowerPortsPartialUpdate(params *DcimPowerPortsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsPartialUpdateOK, error)
+
+	DcimPowerPortsRead(params *DcimPowerPortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsReadOK, error)
+
+	DcimPowerPortsTrace(params *DcimPowerPortsTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsTraceOK, error)
+
+	DcimPowerPortsUpdate(params *DcimPowerPortsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsUpdateOK, error)
+
+	DcimRackGroupsCreate(params *DcimRackGroupsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsCreateCreated, error)
+
+	DcimRackGroupsDelete(params *DcimRackGroupsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsDeleteNoContent, error)
+
+	DcimRackGroupsList(params *DcimRackGroupsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsListOK, error)
+
+	DcimRackGroupsPartialUpdate(params *DcimRackGroupsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsPartialUpdateOK, error)
+
+	DcimRackGroupsRead(params *DcimRackGroupsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsReadOK, error)
+
+	DcimRackGroupsUpdate(params *DcimRackGroupsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsUpdateOK, error)
+
+	DcimRackReservationsCreate(params *DcimRackReservationsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsCreateCreated, error)
+
+	DcimRackReservationsDelete(params *DcimRackReservationsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsDeleteNoContent, error)
+
+	DcimRackReservationsList(params *DcimRackReservationsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsListOK, error)
+
+	DcimRackReservationsPartialUpdate(params *DcimRackReservationsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsPartialUpdateOK, error)
+
+	DcimRackReservationsRead(params *DcimRackReservationsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsReadOK, error)
+
+	DcimRackReservationsUpdate(params *DcimRackReservationsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsUpdateOK, error)
+
+	DcimRackRolesCreate(params *DcimRackRolesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesCreateCreated, error)
+
+	DcimRackRolesDelete(params *DcimRackRolesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesDeleteNoContent, error)
+
+	DcimRackRolesList(params *DcimRackRolesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesListOK, error)
+
+	DcimRackRolesPartialUpdate(params *DcimRackRolesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesPartialUpdateOK, error)
+
+	DcimRackRolesRead(params *DcimRackRolesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesReadOK, error)
+
+	DcimRackRolesUpdate(params *DcimRackRolesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesUpdateOK, error)
+
+	DcimRacksCreate(params *DcimRacksCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksCreateCreated, error)
+
+	DcimRacksDelete(params *DcimRacksDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksDeleteNoContent, error)
+
+	DcimRacksElevation(params *DcimRacksElevationParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksElevationOK, error)
+
+	DcimRacksList(params *DcimRacksListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksListOK, error)
+
+	DcimRacksPartialUpdate(params *DcimRacksPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksPartialUpdateOK, error)
+
+	DcimRacksRead(params *DcimRacksReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksReadOK, error)
+
+	DcimRacksUnits(params *DcimRacksUnitsParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksUnitsOK, error)
+
+	DcimRacksUpdate(params *DcimRacksUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksUpdateOK, error)
+
+	DcimRearPortTemplatesCreate(params *DcimRearPortTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesCreateCreated, error)
+
+	DcimRearPortTemplatesDelete(params *DcimRearPortTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesDeleteNoContent, error)
+
+	DcimRearPortTemplatesList(params *DcimRearPortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesListOK, error)
+
+	DcimRearPortTemplatesPartialUpdate(params *DcimRearPortTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesPartialUpdateOK, error)
+
+	DcimRearPortTemplatesRead(params *DcimRearPortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesReadOK, error)
+
+	DcimRearPortTemplatesUpdate(params *DcimRearPortTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesUpdateOK, error)
+
+	DcimRearPortsCreate(params *DcimRearPortsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsCreateCreated, error)
+
+	DcimRearPortsDelete(params *DcimRearPortsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsDeleteNoContent, error)
+
+	DcimRearPortsList(params *DcimRearPortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsListOK, error)
+
+	DcimRearPortsPartialUpdate(params *DcimRearPortsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsPartialUpdateOK, error)
+
+	DcimRearPortsRead(params *DcimRearPortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsReadOK, error)
+
+	DcimRearPortsUpdate(params *DcimRearPortsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsUpdateOK, error)
+
+	DcimRegionsCreate(params *DcimRegionsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsCreateCreated, error)
+
+	DcimRegionsDelete(params *DcimRegionsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsDeleteNoContent, error)
+
+	DcimRegionsList(params *DcimRegionsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsListOK, error)
+
+	DcimRegionsPartialUpdate(params *DcimRegionsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsPartialUpdateOK, error)
+
+	DcimRegionsRead(params *DcimRegionsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsReadOK, error)
+
+	DcimRegionsUpdate(params *DcimRegionsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsUpdateOK, error)
+
+	DcimSitesCreate(params *DcimSitesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesCreateCreated, error)
+
+	DcimSitesDelete(params *DcimSitesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesDeleteNoContent, error)
+
+	DcimSitesGraphs(params *DcimSitesGraphsParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesGraphsOK, error)
+
+	DcimSitesList(params *DcimSitesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesListOK, error)
+
+	DcimSitesPartialUpdate(params *DcimSitesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesPartialUpdateOK, error)
+
+	DcimSitesRead(params *DcimSitesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesReadOK, error)
+
+	DcimSitesUpdate(params *DcimSitesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesUpdateOK, error)
+
+	DcimVirtualChassisCreate(params *DcimVirtualChassisCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisCreateCreated, error)
+
+	DcimVirtualChassisDelete(params *DcimVirtualChassisDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisDeleteNoContent, error)
+
+	DcimVirtualChassisList(params *DcimVirtualChassisListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisListOK, error)
+
+	DcimVirtualChassisPartialUpdate(params *DcimVirtualChassisPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisPartialUpdateOK, error)
+
+	DcimVirtualChassisRead(params *DcimVirtualChassisReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisReadOK, error)
+
+	DcimVirtualChassisUpdate(params *DcimVirtualChassisUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisUpdateOK, error)
+
+	SetTransport(transport runtime.ClientTransport)
+}
+
 /*
-DcimChoicesList dcim choices list API
+  DcimChoicesList dcim choices list API
 */
 func (a *Client) DcimChoicesList(params *DcimChoicesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimChoicesListOK, error) {
 	// TODO: Validate the params before sending
@@ -77,7 +499,7 @@ func (a *Client) DcimChoicesList(params *DcimChoicesListParams, authInfo runtime
 }
 
 /*
-DcimChoicesRead dcim choices read API
+  DcimChoicesRead dcim choices read API
 */
 func (a *Client) DcimChoicesRead(params *DcimChoicesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimChoicesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -112,7 +534,7 @@ func (a *Client) DcimChoicesRead(params *DcimChoicesReadParams, authInfo runtime
 }
 
 /*
-DcimCablesCreate dcim cables create API
+  DcimCablesCreate dcim cables create API
 */
 func (a *Client) DcimCablesCreate(params *DcimCablesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -147,7 +569,7 @@ func (a *Client) DcimCablesCreate(params *DcimCablesCreateParams, authInfo runti
 }
 
 /*
-DcimCablesDelete dcim cables delete API
+  DcimCablesDelete dcim cables delete API
 */
 func (a *Client) DcimCablesDelete(params *DcimCablesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -182,7 +604,7 @@ func (a *Client) DcimCablesDelete(params *DcimCablesDeleteParams, authInfo runti
 }
 
 /*
-DcimCablesList Call to super to allow for caching
+  DcimCablesList Call to super to allow for caching
 */
 func (a *Client) DcimCablesList(params *DcimCablesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesListOK, error) {
 	// TODO: Validate the params before sending
@@ -217,7 +639,7 @@ func (a *Client) DcimCablesList(params *DcimCablesListParams, authInfo runtime.C
 }
 
 /*
-DcimCablesPartialUpdate dcim cables partial update API
+  DcimCablesPartialUpdate dcim cables partial update API
 */
 func (a *Client) DcimCablesPartialUpdate(params *DcimCablesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -252,7 +674,7 @@ func (a *Client) DcimCablesPartialUpdate(params *DcimCablesPartialUpdateParams, 
 }
 
 /*
-DcimCablesRead Call to super to allow for caching
+  DcimCablesRead Call to super to allow for caching
 */
 func (a *Client) DcimCablesRead(params *DcimCablesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -287,7 +709,7 @@ func (a *Client) DcimCablesRead(params *DcimCablesReadParams, authInfo runtime.C
 }
 
 /*
-DcimCablesUpdate dcim cables update API
+  DcimCablesUpdate dcim cables update API
 */
 func (a *Client) DcimCablesUpdate(params *DcimCablesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimCablesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -322,7 +744,7 @@ func (a *Client) DcimCablesUpdate(params *DcimCablesUpdateParams, authInfo runti
 }
 
 /*
-DcimConnectedDeviceList This endpoint allows a user to determine what device (if any) is connected to a given peer device and peer
+  DcimConnectedDeviceList This endpoint allows a user to determine what device (if any) is connected to a given peer device and peer
 interface. This is useful in a situation where a device boots with no configuration, but can detect its neighbors
 via a protocol such as LLDP. Two query parameters must be included in the request:
 
@@ -362,7 +784,7 @@ func (a *Client) DcimConnectedDeviceList(params *DcimConnectedDeviceListParams, 
 }
 
 /*
-DcimConsoleConnectionsList dcim console connections list API
+  DcimConsoleConnectionsList dcim console connections list API
 */
 func (a *Client) DcimConsoleConnectionsList(params *DcimConsoleConnectionsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleConnectionsListOK, error) {
 	// TODO: Validate the params before sending
@@ -397,7 +819,7 @@ func (a *Client) DcimConsoleConnectionsList(params *DcimConsoleConnectionsListPa
 }
 
 /*
-DcimConsolePortTemplatesCreate dcim console port templates create API
+  DcimConsolePortTemplatesCreate dcim console port templates create API
 */
 func (a *Client) DcimConsolePortTemplatesCreate(params *DcimConsolePortTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -432,7 +854,7 @@ func (a *Client) DcimConsolePortTemplatesCreate(params *DcimConsolePortTemplates
 }
 
 /*
-DcimConsolePortTemplatesDelete dcim console port templates delete API
+  DcimConsolePortTemplatesDelete dcim console port templates delete API
 */
 func (a *Client) DcimConsolePortTemplatesDelete(params *DcimConsolePortTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -467,7 +889,7 @@ func (a *Client) DcimConsolePortTemplatesDelete(params *DcimConsolePortTemplates
 }
 
 /*
-DcimConsolePortTemplatesList Call to super to allow for caching
+  DcimConsolePortTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimConsolePortTemplatesList(params *DcimConsolePortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -502,7 +924,7 @@ func (a *Client) DcimConsolePortTemplatesList(params *DcimConsolePortTemplatesLi
 }
 
 /*
-DcimConsolePortTemplatesPartialUpdate dcim console port templates partial update API
+  DcimConsolePortTemplatesPartialUpdate dcim console port templates partial update API
 */
 func (a *Client) DcimConsolePortTemplatesPartialUpdate(params *DcimConsolePortTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -537,7 +959,7 @@ func (a *Client) DcimConsolePortTemplatesPartialUpdate(params *DcimConsolePortTe
 }
 
 /*
-DcimConsolePortTemplatesRead Call to super to allow for caching
+  DcimConsolePortTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimConsolePortTemplatesRead(params *DcimConsolePortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -572,7 +994,7 @@ func (a *Client) DcimConsolePortTemplatesRead(params *DcimConsolePortTemplatesRe
 }
 
 /*
-DcimConsolePortTemplatesUpdate dcim console port templates update API
+  DcimConsolePortTemplatesUpdate dcim console port templates update API
 */
 func (a *Client) DcimConsolePortTemplatesUpdate(params *DcimConsolePortTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortTemplatesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -607,7 +1029,7 @@ func (a *Client) DcimConsolePortTemplatesUpdate(params *DcimConsolePortTemplates
 }
 
 /*
-DcimConsolePortsCreate dcim console ports create API
+  DcimConsolePortsCreate dcim console ports create API
 */
 func (a *Client) DcimConsolePortsCreate(params *DcimConsolePortsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -642,7 +1064,7 @@ func (a *Client) DcimConsolePortsCreate(params *DcimConsolePortsCreateParams, au
 }
 
 /*
-DcimConsolePortsDelete dcim console ports delete API
+  DcimConsolePortsDelete dcim console ports delete API
 */
 func (a *Client) DcimConsolePortsDelete(params *DcimConsolePortsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -677,7 +1099,7 @@ func (a *Client) DcimConsolePortsDelete(params *DcimConsolePortsDeleteParams, au
 }
 
 /*
-DcimConsolePortsList Call to super to allow for caching
+  DcimConsolePortsList Call to super to allow for caching
 */
 func (a *Client) DcimConsolePortsList(params *DcimConsolePortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsListOK, error) {
 	// TODO: Validate the params before sending
@@ -712,7 +1134,7 @@ func (a *Client) DcimConsolePortsList(params *DcimConsolePortsListParams, authIn
 }
 
 /*
-DcimConsolePortsPartialUpdate dcim console ports partial update API
+  DcimConsolePortsPartialUpdate dcim console ports partial update API
 */
 func (a *Client) DcimConsolePortsPartialUpdate(params *DcimConsolePortsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -747,7 +1169,7 @@ func (a *Client) DcimConsolePortsPartialUpdate(params *DcimConsolePortsPartialUp
 }
 
 /*
-DcimConsolePortsRead Call to super to allow for caching
+  DcimConsolePortsRead Call to super to allow for caching
 */
 func (a *Client) DcimConsolePortsRead(params *DcimConsolePortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -782,7 +1204,7 @@ func (a *Client) DcimConsolePortsRead(params *DcimConsolePortsReadParams, authIn
 }
 
 /*
-DcimConsolePortsTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+  DcimConsolePortsTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
 */
 func (a *Client) DcimConsolePortsTrace(params *DcimConsolePortsTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsTraceOK, error) {
 	// TODO: Validate the params before sending
@@ -817,7 +1239,7 @@ func (a *Client) DcimConsolePortsTrace(params *DcimConsolePortsTraceParams, auth
 }
 
 /*
-DcimConsolePortsUpdate dcim console ports update API
+  DcimConsolePortsUpdate dcim console ports update API
 */
 func (a *Client) DcimConsolePortsUpdate(params *DcimConsolePortsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsolePortsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -852,7 +1274,7 @@ func (a *Client) DcimConsolePortsUpdate(params *DcimConsolePortsUpdateParams, au
 }
 
 /*
-DcimConsoleServerPortTemplatesCreate dcim console server port templates create API
+  DcimConsoleServerPortTemplatesCreate dcim console server port templates create API
 */
 func (a *Client) DcimConsoleServerPortTemplatesCreate(params *DcimConsoleServerPortTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -887,7 +1309,7 @@ func (a *Client) DcimConsoleServerPortTemplatesCreate(params *DcimConsoleServerP
 }
 
 /*
-DcimConsoleServerPortTemplatesDelete dcim console server port templates delete API
+  DcimConsoleServerPortTemplatesDelete dcim console server port templates delete API
 */
 func (a *Client) DcimConsoleServerPortTemplatesDelete(params *DcimConsoleServerPortTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -922,7 +1344,7 @@ func (a *Client) DcimConsoleServerPortTemplatesDelete(params *DcimConsoleServerP
 }
 
 /*
-DcimConsoleServerPortTemplatesList Call to super to allow for caching
+  DcimConsoleServerPortTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimConsoleServerPortTemplatesList(params *DcimConsoleServerPortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -957,7 +1379,7 @@ func (a *Client) DcimConsoleServerPortTemplatesList(params *DcimConsoleServerPor
 }
 
 /*
-DcimConsoleServerPortTemplatesPartialUpdate dcim console server port templates partial update API
+  DcimConsoleServerPortTemplatesPartialUpdate dcim console server port templates partial update API
 */
 func (a *Client) DcimConsoleServerPortTemplatesPartialUpdate(params *DcimConsoleServerPortTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -992,7 +1414,7 @@ func (a *Client) DcimConsoleServerPortTemplatesPartialUpdate(params *DcimConsole
 }
 
 /*
-DcimConsoleServerPortTemplatesRead Call to super to allow for caching
+  DcimConsoleServerPortTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimConsoleServerPortTemplatesRead(params *DcimConsoleServerPortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1027,7 +1449,7 @@ func (a *Client) DcimConsoleServerPortTemplatesRead(params *DcimConsoleServerPor
 }
 
 /*
-DcimConsoleServerPortTemplatesUpdate dcim console server port templates update API
+  DcimConsoleServerPortTemplatesUpdate dcim console server port templates update API
 */
 func (a *Client) DcimConsoleServerPortTemplatesUpdate(params *DcimConsoleServerPortTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortTemplatesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -1062,7 +1484,7 @@ func (a *Client) DcimConsoleServerPortTemplatesUpdate(params *DcimConsoleServerP
 }
 
 /*
-DcimConsoleServerPortsCreate dcim console server ports create API
+  DcimConsoleServerPortsCreate dcim console server ports create API
 */
 func (a *Client) DcimConsoleServerPortsCreate(params *DcimConsoleServerPortsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -1097,7 +1519,7 @@ func (a *Client) DcimConsoleServerPortsCreate(params *DcimConsoleServerPortsCrea
 }
 
 /*
-DcimConsoleServerPortsDelete dcim console server ports delete API
+  DcimConsoleServerPortsDelete dcim console server ports delete API
 */
 func (a *Client) DcimConsoleServerPortsDelete(params *DcimConsoleServerPortsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1132,7 +1554,7 @@ func (a *Client) DcimConsoleServerPortsDelete(params *DcimConsoleServerPortsDele
 }
 
 /*
-DcimConsoleServerPortsList Call to super to allow for caching
+  DcimConsoleServerPortsList Call to super to allow for caching
 */
 func (a *Client) DcimConsoleServerPortsList(params *DcimConsoleServerPortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsListOK, error) {
 	// TODO: Validate the params before sending
@@ -1167,7 +1589,7 @@ func (a *Client) DcimConsoleServerPortsList(params *DcimConsoleServerPortsListPa
 }
 
 /*
-DcimConsoleServerPortsPartialUpdate dcim console server ports partial update API
+  DcimConsoleServerPortsPartialUpdate dcim console server ports partial update API
 */
 func (a *Client) DcimConsoleServerPortsPartialUpdate(params *DcimConsoleServerPortsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -1202,7 +1624,7 @@ func (a *Client) DcimConsoleServerPortsPartialUpdate(params *DcimConsoleServerPo
 }
 
 /*
-DcimConsoleServerPortsRead Call to super to allow for caching
+  DcimConsoleServerPortsRead Call to super to allow for caching
 */
 func (a *Client) DcimConsoleServerPortsRead(params *DcimConsoleServerPortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1237,7 +1659,7 @@ func (a *Client) DcimConsoleServerPortsRead(params *DcimConsoleServerPortsReadPa
 }
 
 /*
-DcimConsoleServerPortsTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+  DcimConsoleServerPortsTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
 */
 func (a *Client) DcimConsoleServerPortsTrace(params *DcimConsoleServerPortsTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsTraceOK, error) {
 	// TODO: Validate the params before sending
@@ -1272,7 +1694,7 @@ func (a *Client) DcimConsoleServerPortsTrace(params *DcimConsoleServerPortsTrace
 }
 
 /*
-DcimConsoleServerPortsUpdate dcim console server ports update API
+  DcimConsoleServerPortsUpdate dcim console server ports update API
 */
 func (a *Client) DcimConsoleServerPortsUpdate(params *DcimConsoleServerPortsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimConsoleServerPortsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -1307,7 +1729,7 @@ func (a *Client) DcimConsoleServerPortsUpdate(params *DcimConsoleServerPortsUpda
 }
 
 /*
-DcimDeviceBayTemplatesCreate dcim device bay templates create API
+  DcimDeviceBayTemplatesCreate dcim device bay templates create API
 */
 func (a *Client) DcimDeviceBayTemplatesCreate(params *DcimDeviceBayTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -1342,7 +1764,7 @@ func (a *Client) DcimDeviceBayTemplatesCreate(params *DcimDeviceBayTemplatesCrea
 }
 
 /*
-DcimDeviceBayTemplatesDelete dcim device bay templates delete API
+  DcimDeviceBayTemplatesDelete dcim device bay templates delete API
 */
 func (a *Client) DcimDeviceBayTemplatesDelete(params *DcimDeviceBayTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1377,7 +1799,7 @@ func (a *Client) DcimDeviceBayTemplatesDelete(params *DcimDeviceBayTemplatesDele
 }
 
 /*
-DcimDeviceBayTemplatesList Call to super to allow for caching
+  DcimDeviceBayTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimDeviceBayTemplatesList(params *DcimDeviceBayTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -1412,7 +1834,7 @@ func (a *Client) DcimDeviceBayTemplatesList(params *DcimDeviceBayTemplatesListPa
 }
 
 /*
-DcimDeviceBayTemplatesPartialUpdate dcim device bay templates partial update API
+  DcimDeviceBayTemplatesPartialUpdate dcim device bay templates partial update API
 */
 func (a *Client) DcimDeviceBayTemplatesPartialUpdate(params *DcimDeviceBayTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -1447,7 +1869,7 @@ func (a *Client) DcimDeviceBayTemplatesPartialUpdate(params *DcimDeviceBayTempla
 }
 
 /*
-DcimDeviceBayTemplatesRead Call to super to allow for caching
+  DcimDeviceBayTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimDeviceBayTemplatesRead(params *DcimDeviceBayTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1482,7 +1904,7 @@ func (a *Client) DcimDeviceBayTemplatesRead(params *DcimDeviceBayTemplatesReadPa
 }
 
 /*
-DcimDeviceBayTemplatesUpdate dcim device bay templates update API
+  DcimDeviceBayTemplatesUpdate dcim device bay templates update API
 */
 func (a *Client) DcimDeviceBayTemplatesUpdate(params *DcimDeviceBayTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBayTemplatesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -1517,7 +1939,7 @@ func (a *Client) DcimDeviceBayTemplatesUpdate(params *DcimDeviceBayTemplatesUpda
 }
 
 /*
-DcimDeviceBaysCreate dcim device bays create API
+  DcimDeviceBaysCreate dcim device bays create API
 */
 func (a *Client) DcimDeviceBaysCreate(params *DcimDeviceBaysCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -1552,7 +1974,7 @@ func (a *Client) DcimDeviceBaysCreate(params *DcimDeviceBaysCreateParams, authIn
 }
 
 /*
-DcimDeviceBaysDelete dcim device bays delete API
+  DcimDeviceBaysDelete dcim device bays delete API
 */
 func (a *Client) DcimDeviceBaysDelete(params *DcimDeviceBaysDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1587,7 +2009,7 @@ func (a *Client) DcimDeviceBaysDelete(params *DcimDeviceBaysDeleteParams, authIn
 }
 
 /*
-DcimDeviceBaysList Call to super to allow for caching
+  DcimDeviceBaysList Call to super to allow for caching
 */
 func (a *Client) DcimDeviceBaysList(params *DcimDeviceBaysListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysListOK, error) {
 	// TODO: Validate the params before sending
@@ -1622,7 +2044,7 @@ func (a *Client) DcimDeviceBaysList(params *DcimDeviceBaysListParams, authInfo r
 }
 
 /*
-DcimDeviceBaysPartialUpdate dcim device bays partial update API
+  DcimDeviceBaysPartialUpdate dcim device bays partial update API
 */
 func (a *Client) DcimDeviceBaysPartialUpdate(params *DcimDeviceBaysPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -1657,7 +2079,7 @@ func (a *Client) DcimDeviceBaysPartialUpdate(params *DcimDeviceBaysPartialUpdate
 }
 
 /*
-DcimDeviceBaysRead Call to super to allow for caching
+  DcimDeviceBaysRead Call to super to allow for caching
 */
 func (a *Client) DcimDeviceBaysRead(params *DcimDeviceBaysReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1692,7 +2114,7 @@ func (a *Client) DcimDeviceBaysRead(params *DcimDeviceBaysReadParams, authInfo r
 }
 
 /*
-DcimDeviceBaysUpdate dcim device bays update API
+  DcimDeviceBaysUpdate dcim device bays update API
 */
 func (a *Client) DcimDeviceBaysUpdate(params *DcimDeviceBaysUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceBaysUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -1727,7 +2149,7 @@ func (a *Client) DcimDeviceBaysUpdate(params *DcimDeviceBaysUpdateParams, authIn
 }
 
 /*
-DcimDeviceRolesCreate dcim device roles create API
+  DcimDeviceRolesCreate dcim device roles create API
 */
 func (a *Client) DcimDeviceRolesCreate(params *DcimDeviceRolesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -1762,7 +2184,7 @@ func (a *Client) DcimDeviceRolesCreate(params *DcimDeviceRolesCreateParams, auth
 }
 
 /*
-DcimDeviceRolesDelete dcim device roles delete API
+  DcimDeviceRolesDelete dcim device roles delete API
 */
 func (a *Client) DcimDeviceRolesDelete(params *DcimDeviceRolesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1797,7 +2219,7 @@ func (a *Client) DcimDeviceRolesDelete(params *DcimDeviceRolesDeleteParams, auth
 }
 
 /*
-DcimDeviceRolesList Call to super to allow for caching
+  DcimDeviceRolesList Call to super to allow for caching
 */
 func (a *Client) DcimDeviceRolesList(params *DcimDeviceRolesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesListOK, error) {
 	// TODO: Validate the params before sending
@@ -1832,7 +2254,7 @@ func (a *Client) DcimDeviceRolesList(params *DcimDeviceRolesListParams, authInfo
 }
 
 /*
-DcimDeviceRolesPartialUpdate dcim device roles partial update API
+  DcimDeviceRolesPartialUpdate dcim device roles partial update API
 */
 func (a *Client) DcimDeviceRolesPartialUpdate(params *DcimDeviceRolesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -1867,7 +2289,7 @@ func (a *Client) DcimDeviceRolesPartialUpdate(params *DcimDeviceRolesPartialUpda
 }
 
 /*
-DcimDeviceRolesRead Call to super to allow for caching
+  DcimDeviceRolesRead Call to super to allow for caching
 */
 func (a *Client) DcimDeviceRolesRead(params *DcimDeviceRolesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1902,7 +2324,7 @@ func (a *Client) DcimDeviceRolesRead(params *DcimDeviceRolesReadParams, authInfo
 }
 
 /*
-DcimDeviceRolesUpdate dcim device roles update API
+  DcimDeviceRolesUpdate dcim device roles update API
 */
 func (a *Client) DcimDeviceRolesUpdate(params *DcimDeviceRolesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceRolesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -1937,7 +2359,7 @@ func (a *Client) DcimDeviceRolesUpdate(params *DcimDeviceRolesUpdateParams, auth
 }
 
 /*
-DcimDeviceTypesCreate dcim device types create API
+  DcimDeviceTypesCreate dcim device types create API
 */
 func (a *Client) DcimDeviceTypesCreate(params *DcimDeviceTypesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -1972,7 +2394,7 @@ func (a *Client) DcimDeviceTypesCreate(params *DcimDeviceTypesCreateParams, auth
 }
 
 /*
-DcimDeviceTypesDelete dcim device types delete API
+  DcimDeviceTypesDelete dcim device types delete API
 */
 func (a *Client) DcimDeviceTypesDelete(params *DcimDeviceTypesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2007,7 +2429,7 @@ func (a *Client) DcimDeviceTypesDelete(params *DcimDeviceTypesDeleteParams, auth
 }
 
 /*
-DcimDeviceTypesList Call to super to allow for caching
+  DcimDeviceTypesList Call to super to allow for caching
 */
 func (a *Client) DcimDeviceTypesList(params *DcimDeviceTypesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesListOK, error) {
 	// TODO: Validate the params before sending
@@ -2042,7 +2464,7 @@ func (a *Client) DcimDeviceTypesList(params *DcimDeviceTypesListParams, authInfo
 }
 
 /*
-DcimDeviceTypesPartialUpdate dcim device types partial update API
+  DcimDeviceTypesPartialUpdate dcim device types partial update API
 */
 func (a *Client) DcimDeviceTypesPartialUpdate(params *DcimDeviceTypesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -2077,7 +2499,7 @@ func (a *Client) DcimDeviceTypesPartialUpdate(params *DcimDeviceTypesPartialUpda
 }
 
 /*
-DcimDeviceTypesRead Call to super to allow for caching
+  DcimDeviceTypesRead Call to super to allow for caching
 */
 func (a *Client) DcimDeviceTypesRead(params *DcimDeviceTypesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -2112,7 +2534,7 @@ func (a *Client) DcimDeviceTypesRead(params *DcimDeviceTypesReadParams, authInfo
 }
 
 /*
-DcimDeviceTypesUpdate dcim device types update API
+  DcimDeviceTypesUpdate dcim device types update API
 */
 func (a *Client) DcimDeviceTypesUpdate(params *DcimDeviceTypesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDeviceTypesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -2147,7 +2569,7 @@ func (a *Client) DcimDeviceTypesUpdate(params *DcimDeviceTypesUpdateParams, auth
 }
 
 /*
-DcimDevicesCreate dcim devices create API
+  DcimDevicesCreate dcim devices create API
 */
 func (a *Client) DcimDevicesCreate(params *DcimDevicesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -2182,7 +2604,7 @@ func (a *Client) DcimDevicesCreate(params *DcimDevicesCreateParams, authInfo run
 }
 
 /*
-DcimDevicesDelete dcim devices delete API
+  DcimDevicesDelete dcim devices delete API
 */
 func (a *Client) DcimDevicesDelete(params *DcimDevicesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2217,7 +2639,7 @@ func (a *Client) DcimDevicesDelete(params *DcimDevicesDeleteParams, authInfo run
 }
 
 /*
-DcimDevicesGraphs A convenience method for rendering graphs for a particular Device.
+  DcimDevicesGraphs A convenience method for rendering graphs for a particular Device.
 */
 func (a *Client) DcimDevicesGraphs(params *DcimDevicesGraphsParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesGraphsOK, error) {
 	// TODO: Validate the params before sending
@@ -2252,7 +2674,7 @@ func (a *Client) DcimDevicesGraphs(params *DcimDevicesGraphsParams, authInfo run
 }
 
 /*
-DcimDevicesList Call to super to allow for caching
+  DcimDevicesList Call to super to allow for caching
 */
 func (a *Client) DcimDevicesList(params *DcimDevicesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesListOK, error) {
 	// TODO: Validate the params before sending
@@ -2287,7 +2709,7 @@ func (a *Client) DcimDevicesList(params *DcimDevicesListParams, authInfo runtime
 }
 
 /*
-DcimDevicesNapalm Execute a NAPALM method on a Device
+  DcimDevicesNapalm Execute a NAPALM method on a Device
 */
 func (a *Client) DcimDevicesNapalm(params *DcimDevicesNapalmParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesNapalmOK, error) {
 	// TODO: Validate the params before sending
@@ -2322,7 +2744,7 @@ func (a *Client) DcimDevicesNapalm(params *DcimDevicesNapalmParams, authInfo run
 }
 
 /*
-DcimDevicesPartialUpdate dcim devices partial update API
+  DcimDevicesPartialUpdate dcim devices partial update API
 */
 func (a *Client) DcimDevicesPartialUpdate(params *DcimDevicesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -2357,7 +2779,7 @@ func (a *Client) DcimDevicesPartialUpdate(params *DcimDevicesPartialUpdateParams
 }
 
 /*
-DcimDevicesRead Call to super to allow for caching
+  DcimDevicesRead Call to super to allow for caching
 */
 func (a *Client) DcimDevicesRead(params *DcimDevicesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -2392,7 +2814,7 @@ func (a *Client) DcimDevicesRead(params *DcimDevicesReadParams, authInfo runtime
 }
 
 /*
-DcimDevicesUpdate dcim devices update API
+  DcimDevicesUpdate dcim devices update API
 */
 func (a *Client) DcimDevicesUpdate(params *DcimDevicesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimDevicesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -2427,7 +2849,7 @@ func (a *Client) DcimDevicesUpdate(params *DcimDevicesUpdateParams, authInfo run
 }
 
 /*
-DcimFrontPortTemplatesCreate dcim front port templates create API
+  DcimFrontPortTemplatesCreate dcim front port templates create API
 */
 func (a *Client) DcimFrontPortTemplatesCreate(params *DcimFrontPortTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -2462,7 +2884,7 @@ func (a *Client) DcimFrontPortTemplatesCreate(params *DcimFrontPortTemplatesCrea
 }
 
 /*
-DcimFrontPortTemplatesDelete dcim front port templates delete API
+  DcimFrontPortTemplatesDelete dcim front port templates delete API
 */
 func (a *Client) DcimFrontPortTemplatesDelete(params *DcimFrontPortTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2497,7 +2919,7 @@ func (a *Client) DcimFrontPortTemplatesDelete(params *DcimFrontPortTemplatesDele
 }
 
 /*
-DcimFrontPortTemplatesList Call to super to allow for caching
+  DcimFrontPortTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimFrontPortTemplatesList(params *DcimFrontPortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -2532,7 +2954,7 @@ func (a *Client) DcimFrontPortTemplatesList(params *DcimFrontPortTemplatesListPa
 }
 
 /*
-DcimFrontPortTemplatesPartialUpdate dcim front port templates partial update API
+  DcimFrontPortTemplatesPartialUpdate dcim front port templates partial update API
 */
 func (a *Client) DcimFrontPortTemplatesPartialUpdate(params *DcimFrontPortTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -2567,7 +2989,7 @@ func (a *Client) DcimFrontPortTemplatesPartialUpdate(params *DcimFrontPortTempla
 }
 
 /*
-DcimFrontPortTemplatesRead Call to super to allow for caching
+  DcimFrontPortTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimFrontPortTemplatesRead(params *DcimFrontPortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -2602,7 +3024,7 @@ func (a *Client) DcimFrontPortTemplatesRead(params *DcimFrontPortTemplatesReadPa
 }
 
 /*
-DcimFrontPortTemplatesUpdate dcim front port templates update API
+  DcimFrontPortTemplatesUpdate dcim front port templates update API
 */
 func (a *Client) DcimFrontPortTemplatesUpdate(params *DcimFrontPortTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortTemplatesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -2637,7 +3059,7 @@ func (a *Client) DcimFrontPortTemplatesUpdate(params *DcimFrontPortTemplatesUpda
 }
 
 /*
-DcimFrontPortsCreate dcim front ports create API
+  DcimFrontPortsCreate dcim front ports create API
 */
 func (a *Client) DcimFrontPortsCreate(params *DcimFrontPortsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -2672,7 +3094,7 @@ func (a *Client) DcimFrontPortsCreate(params *DcimFrontPortsCreateParams, authIn
 }
 
 /*
-DcimFrontPortsDelete dcim front ports delete API
+  DcimFrontPortsDelete dcim front ports delete API
 */
 func (a *Client) DcimFrontPortsDelete(params *DcimFrontPortsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2707,7 +3129,7 @@ func (a *Client) DcimFrontPortsDelete(params *DcimFrontPortsDeleteParams, authIn
 }
 
 /*
-DcimFrontPortsList Call to super to allow for caching
+  DcimFrontPortsList Call to super to allow for caching
 */
 func (a *Client) DcimFrontPortsList(params *DcimFrontPortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsListOK, error) {
 	// TODO: Validate the params before sending
@@ -2742,7 +3164,7 @@ func (a *Client) DcimFrontPortsList(params *DcimFrontPortsListParams, authInfo r
 }
 
 /*
-DcimFrontPortsPartialUpdate dcim front ports partial update API
+  DcimFrontPortsPartialUpdate dcim front ports partial update API
 */
 func (a *Client) DcimFrontPortsPartialUpdate(params *DcimFrontPortsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -2777,7 +3199,7 @@ func (a *Client) DcimFrontPortsPartialUpdate(params *DcimFrontPortsPartialUpdate
 }
 
 /*
-DcimFrontPortsRead Call to super to allow for caching
+  DcimFrontPortsRead Call to super to allow for caching
 */
 func (a *Client) DcimFrontPortsRead(params *DcimFrontPortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -2812,7 +3234,7 @@ func (a *Client) DcimFrontPortsRead(params *DcimFrontPortsReadParams, authInfo r
 }
 
 /*
-DcimFrontPortsUpdate dcim front ports update API
+  DcimFrontPortsUpdate dcim front ports update API
 */
 func (a *Client) DcimFrontPortsUpdate(params *DcimFrontPortsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimFrontPortsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -2847,7 +3269,7 @@ func (a *Client) DcimFrontPortsUpdate(params *DcimFrontPortsUpdateParams, authIn
 }
 
 /*
-DcimInterfaceConnectionsList dcim interface connections list API
+  DcimInterfaceConnectionsList dcim interface connections list API
 */
 func (a *Client) DcimInterfaceConnectionsList(params *DcimInterfaceConnectionsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceConnectionsListOK, error) {
 	// TODO: Validate the params before sending
@@ -2882,7 +3304,7 @@ func (a *Client) DcimInterfaceConnectionsList(params *DcimInterfaceConnectionsLi
 }
 
 /*
-DcimInterfaceTemplatesCreate dcim interface templates create API
+  DcimInterfaceTemplatesCreate dcim interface templates create API
 */
 func (a *Client) DcimInterfaceTemplatesCreate(params *DcimInterfaceTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -2917,7 +3339,7 @@ func (a *Client) DcimInterfaceTemplatesCreate(params *DcimInterfaceTemplatesCrea
 }
 
 /*
-DcimInterfaceTemplatesDelete dcim interface templates delete API
+  DcimInterfaceTemplatesDelete dcim interface templates delete API
 */
 func (a *Client) DcimInterfaceTemplatesDelete(params *DcimInterfaceTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -2952,7 +3374,7 @@ func (a *Client) DcimInterfaceTemplatesDelete(params *DcimInterfaceTemplatesDele
 }
 
 /*
-DcimInterfaceTemplatesList Call to super to allow for caching
+  DcimInterfaceTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimInterfaceTemplatesList(params *DcimInterfaceTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -2987,7 +3409,7 @@ func (a *Client) DcimInterfaceTemplatesList(params *DcimInterfaceTemplatesListPa
 }
 
 /*
-DcimInterfaceTemplatesPartialUpdate dcim interface templates partial update API
+  DcimInterfaceTemplatesPartialUpdate dcim interface templates partial update API
 */
 func (a *Client) DcimInterfaceTemplatesPartialUpdate(params *DcimInterfaceTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -3022,7 +3444,7 @@ func (a *Client) DcimInterfaceTemplatesPartialUpdate(params *DcimInterfaceTempla
 }
 
 /*
-DcimInterfaceTemplatesRead Call to super to allow for caching
+  DcimInterfaceTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimInterfaceTemplatesRead(params *DcimInterfaceTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -3057,7 +3479,7 @@ func (a *Client) DcimInterfaceTemplatesRead(params *DcimInterfaceTemplatesReadPa
 }
 
 /*
-DcimInterfaceTemplatesUpdate dcim interface templates update API
+  DcimInterfaceTemplatesUpdate dcim interface templates update API
 */
 func (a *Client) DcimInterfaceTemplatesUpdate(params *DcimInterfaceTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfaceTemplatesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -3092,7 +3514,7 @@ func (a *Client) DcimInterfaceTemplatesUpdate(params *DcimInterfaceTemplatesUpda
 }
 
 /*
-DcimInterfacesCreate dcim interfaces create API
+  DcimInterfacesCreate dcim interfaces create API
 */
 func (a *Client) DcimInterfacesCreate(params *DcimInterfacesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -3127,7 +3549,7 @@ func (a *Client) DcimInterfacesCreate(params *DcimInterfacesCreateParams, authIn
 }
 
 /*
-DcimInterfacesDelete dcim interfaces delete API
+  DcimInterfacesDelete dcim interfaces delete API
 */
 func (a *Client) DcimInterfacesDelete(params *DcimInterfacesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -3162,7 +3584,7 @@ func (a *Client) DcimInterfacesDelete(params *DcimInterfacesDeleteParams, authIn
 }
 
 /*
-DcimInterfacesGraphs A convenience method for rendering graphs for a particular interface.
+  DcimInterfacesGraphs A convenience method for rendering graphs for a particular interface.
 */
 func (a *Client) DcimInterfacesGraphs(params *DcimInterfacesGraphsParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesGraphsOK, error) {
 	// TODO: Validate the params before sending
@@ -3197,7 +3619,7 @@ func (a *Client) DcimInterfacesGraphs(params *DcimInterfacesGraphsParams, authIn
 }
 
 /*
-DcimInterfacesList Call to super to allow for caching
+  DcimInterfacesList Call to super to allow for caching
 */
 func (a *Client) DcimInterfacesList(params *DcimInterfacesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesListOK, error) {
 	// TODO: Validate the params before sending
@@ -3232,7 +3654,7 @@ func (a *Client) DcimInterfacesList(params *DcimInterfacesListParams, authInfo r
 }
 
 /*
-DcimInterfacesPartialUpdate dcim interfaces partial update API
+  DcimInterfacesPartialUpdate dcim interfaces partial update API
 */
 func (a *Client) DcimInterfacesPartialUpdate(params *DcimInterfacesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -3267,7 +3689,7 @@ func (a *Client) DcimInterfacesPartialUpdate(params *DcimInterfacesPartialUpdate
 }
 
 /*
-DcimInterfacesRead Call to super to allow for caching
+  DcimInterfacesRead Call to super to allow for caching
 */
 func (a *Client) DcimInterfacesRead(params *DcimInterfacesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -3302,7 +3724,7 @@ func (a *Client) DcimInterfacesRead(params *DcimInterfacesReadParams, authInfo r
 }
 
 /*
-DcimInterfacesTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+  DcimInterfacesTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
 */
 func (a *Client) DcimInterfacesTrace(params *DcimInterfacesTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesTraceOK, error) {
 	// TODO: Validate the params before sending
@@ -3337,7 +3759,7 @@ func (a *Client) DcimInterfacesTrace(params *DcimInterfacesTraceParams, authInfo
 }
 
 /*
-DcimInterfacesUpdate dcim interfaces update API
+  DcimInterfacesUpdate dcim interfaces update API
 */
 func (a *Client) DcimInterfacesUpdate(params *DcimInterfacesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInterfacesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -3372,7 +3794,7 @@ func (a *Client) DcimInterfacesUpdate(params *DcimInterfacesUpdateParams, authIn
 }
 
 /*
-DcimInventoryItemsCreate dcim inventory items create API
+  DcimInventoryItemsCreate dcim inventory items create API
 */
 func (a *Client) DcimInventoryItemsCreate(params *DcimInventoryItemsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -3407,7 +3829,7 @@ func (a *Client) DcimInventoryItemsCreate(params *DcimInventoryItemsCreateParams
 }
 
 /*
-DcimInventoryItemsDelete dcim inventory items delete API
+  DcimInventoryItemsDelete dcim inventory items delete API
 */
 func (a *Client) DcimInventoryItemsDelete(params *DcimInventoryItemsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -3442,7 +3864,7 @@ func (a *Client) DcimInventoryItemsDelete(params *DcimInventoryItemsDeleteParams
 }
 
 /*
-DcimInventoryItemsList Call to super to allow for caching
+  DcimInventoryItemsList Call to super to allow for caching
 */
 func (a *Client) DcimInventoryItemsList(params *DcimInventoryItemsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsListOK, error) {
 	// TODO: Validate the params before sending
@@ -3477,7 +3899,7 @@ func (a *Client) DcimInventoryItemsList(params *DcimInventoryItemsListParams, au
 }
 
 /*
-DcimInventoryItemsPartialUpdate dcim inventory items partial update API
+  DcimInventoryItemsPartialUpdate dcim inventory items partial update API
 */
 func (a *Client) DcimInventoryItemsPartialUpdate(params *DcimInventoryItemsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -3512,7 +3934,7 @@ func (a *Client) DcimInventoryItemsPartialUpdate(params *DcimInventoryItemsParti
 }
 
 /*
-DcimInventoryItemsRead Call to super to allow for caching
+  DcimInventoryItemsRead Call to super to allow for caching
 */
 func (a *Client) DcimInventoryItemsRead(params *DcimInventoryItemsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -3547,7 +3969,7 @@ func (a *Client) DcimInventoryItemsRead(params *DcimInventoryItemsReadParams, au
 }
 
 /*
-DcimInventoryItemsUpdate dcim inventory items update API
+  DcimInventoryItemsUpdate dcim inventory items update API
 */
 func (a *Client) DcimInventoryItemsUpdate(params *DcimInventoryItemsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimInventoryItemsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -3582,7 +4004,7 @@ func (a *Client) DcimInventoryItemsUpdate(params *DcimInventoryItemsUpdateParams
 }
 
 /*
-DcimManufacturersCreate dcim manufacturers create API
+  DcimManufacturersCreate dcim manufacturers create API
 */
 func (a *Client) DcimManufacturersCreate(params *DcimManufacturersCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -3617,7 +4039,7 @@ func (a *Client) DcimManufacturersCreate(params *DcimManufacturersCreateParams, 
 }
 
 /*
-DcimManufacturersDelete dcim manufacturers delete API
+  DcimManufacturersDelete dcim manufacturers delete API
 */
 func (a *Client) DcimManufacturersDelete(params *DcimManufacturersDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -3652,7 +4074,7 @@ func (a *Client) DcimManufacturersDelete(params *DcimManufacturersDeleteParams, 
 }
 
 /*
-DcimManufacturersList Call to super to allow for caching
+  DcimManufacturersList Call to super to allow for caching
 */
 func (a *Client) DcimManufacturersList(params *DcimManufacturersListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersListOK, error) {
 	// TODO: Validate the params before sending
@@ -3687,7 +4109,7 @@ func (a *Client) DcimManufacturersList(params *DcimManufacturersListParams, auth
 }
 
 /*
-DcimManufacturersPartialUpdate dcim manufacturers partial update API
+  DcimManufacturersPartialUpdate dcim manufacturers partial update API
 */
 func (a *Client) DcimManufacturersPartialUpdate(params *DcimManufacturersPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -3722,7 +4144,7 @@ func (a *Client) DcimManufacturersPartialUpdate(params *DcimManufacturersPartial
 }
 
 /*
-DcimManufacturersRead Call to super to allow for caching
+  DcimManufacturersRead Call to super to allow for caching
 */
 func (a *Client) DcimManufacturersRead(params *DcimManufacturersReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersReadOK, error) {
 	// TODO: Validate the params before sending
@@ -3757,7 +4179,7 @@ func (a *Client) DcimManufacturersRead(params *DcimManufacturersReadParams, auth
 }
 
 /*
-DcimManufacturersUpdate dcim manufacturers update API
+  DcimManufacturersUpdate dcim manufacturers update API
 */
 func (a *Client) DcimManufacturersUpdate(params *DcimManufacturersUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimManufacturersUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -3792,7 +4214,7 @@ func (a *Client) DcimManufacturersUpdate(params *DcimManufacturersUpdateParams, 
 }
 
 /*
-DcimPlatformsCreate dcim platforms create API
+  DcimPlatformsCreate dcim platforms create API
 */
 func (a *Client) DcimPlatformsCreate(params *DcimPlatformsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -3827,7 +4249,7 @@ func (a *Client) DcimPlatformsCreate(params *DcimPlatformsCreateParams, authInfo
 }
 
 /*
-DcimPlatformsDelete dcim platforms delete API
+  DcimPlatformsDelete dcim platforms delete API
 */
 func (a *Client) DcimPlatformsDelete(params *DcimPlatformsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -3862,7 +4284,7 @@ func (a *Client) DcimPlatformsDelete(params *DcimPlatformsDeleteParams, authInfo
 }
 
 /*
-DcimPlatformsList Call to super to allow for caching
+  DcimPlatformsList Call to super to allow for caching
 */
 func (a *Client) DcimPlatformsList(params *DcimPlatformsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsListOK, error) {
 	// TODO: Validate the params before sending
@@ -3897,7 +4319,7 @@ func (a *Client) DcimPlatformsList(params *DcimPlatformsListParams, authInfo run
 }
 
 /*
-DcimPlatformsPartialUpdate dcim platforms partial update API
+  DcimPlatformsPartialUpdate dcim platforms partial update API
 */
 func (a *Client) DcimPlatformsPartialUpdate(params *DcimPlatformsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -3932,7 +4354,7 @@ func (a *Client) DcimPlatformsPartialUpdate(params *DcimPlatformsPartialUpdatePa
 }
 
 /*
-DcimPlatformsRead Call to super to allow for caching
+  DcimPlatformsRead Call to super to allow for caching
 */
 func (a *Client) DcimPlatformsRead(params *DcimPlatformsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -3967,7 +4389,7 @@ func (a *Client) DcimPlatformsRead(params *DcimPlatformsReadParams, authInfo run
 }
 
 /*
-DcimPlatformsUpdate dcim platforms update API
+  DcimPlatformsUpdate dcim platforms update API
 */
 func (a *Client) DcimPlatformsUpdate(params *DcimPlatformsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPlatformsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -4002,7 +4424,7 @@ func (a *Client) DcimPlatformsUpdate(params *DcimPlatformsUpdateParams, authInfo
 }
 
 /*
-DcimPowerConnectionsList dcim power connections list API
+  DcimPowerConnectionsList dcim power connections list API
 */
 func (a *Client) DcimPowerConnectionsList(params *DcimPowerConnectionsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerConnectionsListOK, error) {
 	// TODO: Validate the params before sending
@@ -4037,7 +4459,7 @@ func (a *Client) DcimPowerConnectionsList(params *DcimPowerConnectionsListParams
 }
 
 /*
-DcimPowerFeedsCreate dcim power feeds create API
+  DcimPowerFeedsCreate dcim power feeds create API
 */
 func (a *Client) DcimPowerFeedsCreate(params *DcimPowerFeedsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -4072,7 +4494,7 @@ func (a *Client) DcimPowerFeedsCreate(params *DcimPowerFeedsCreateParams, authIn
 }
 
 /*
-DcimPowerFeedsDelete dcim power feeds delete API
+  DcimPowerFeedsDelete dcim power feeds delete API
 */
 func (a *Client) DcimPowerFeedsDelete(params *DcimPowerFeedsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -4107,7 +4529,7 @@ func (a *Client) DcimPowerFeedsDelete(params *DcimPowerFeedsDeleteParams, authIn
 }
 
 /*
-DcimPowerFeedsList Call to super to allow for caching
+  DcimPowerFeedsList Call to super to allow for caching
 */
 func (a *Client) DcimPowerFeedsList(params *DcimPowerFeedsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsListOK, error) {
 	// TODO: Validate the params before sending
@@ -4142,7 +4564,7 @@ func (a *Client) DcimPowerFeedsList(params *DcimPowerFeedsListParams, authInfo r
 }
 
 /*
-DcimPowerFeedsPartialUpdate dcim power feeds partial update API
+  DcimPowerFeedsPartialUpdate dcim power feeds partial update API
 */
 func (a *Client) DcimPowerFeedsPartialUpdate(params *DcimPowerFeedsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -4177,7 +4599,7 @@ func (a *Client) DcimPowerFeedsPartialUpdate(params *DcimPowerFeedsPartialUpdate
 }
 
 /*
-DcimPowerFeedsRead Call to super to allow for caching
+  DcimPowerFeedsRead Call to super to allow for caching
 */
 func (a *Client) DcimPowerFeedsRead(params *DcimPowerFeedsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -4212,7 +4634,7 @@ func (a *Client) DcimPowerFeedsRead(params *DcimPowerFeedsReadParams, authInfo r
 }
 
 /*
-DcimPowerFeedsUpdate dcim power feeds update API
+  DcimPowerFeedsUpdate dcim power feeds update API
 */
 func (a *Client) DcimPowerFeedsUpdate(params *DcimPowerFeedsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerFeedsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -4247,7 +4669,7 @@ func (a *Client) DcimPowerFeedsUpdate(params *DcimPowerFeedsUpdateParams, authIn
 }
 
 /*
-DcimPowerOutletTemplatesCreate dcim power outlet templates create API
+  DcimPowerOutletTemplatesCreate dcim power outlet templates create API
 */
 func (a *Client) DcimPowerOutletTemplatesCreate(params *DcimPowerOutletTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -4282,7 +4704,7 @@ func (a *Client) DcimPowerOutletTemplatesCreate(params *DcimPowerOutletTemplates
 }
 
 /*
-DcimPowerOutletTemplatesDelete dcim power outlet templates delete API
+  DcimPowerOutletTemplatesDelete dcim power outlet templates delete API
 */
 func (a *Client) DcimPowerOutletTemplatesDelete(params *DcimPowerOutletTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -4317,7 +4739,7 @@ func (a *Client) DcimPowerOutletTemplatesDelete(params *DcimPowerOutletTemplates
 }
 
 /*
-DcimPowerOutletTemplatesList Call to super to allow for caching
+  DcimPowerOutletTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimPowerOutletTemplatesList(params *DcimPowerOutletTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -4352,7 +4774,7 @@ func (a *Client) DcimPowerOutletTemplatesList(params *DcimPowerOutletTemplatesLi
 }
 
 /*
-DcimPowerOutletTemplatesPartialUpdate dcim power outlet templates partial update API
+  DcimPowerOutletTemplatesPartialUpdate dcim power outlet templates partial update API
 */
 func (a *Client) DcimPowerOutletTemplatesPartialUpdate(params *DcimPowerOutletTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -4387,7 +4809,7 @@ func (a *Client) DcimPowerOutletTemplatesPartialUpdate(params *DcimPowerOutletTe
 }
 
 /*
-DcimPowerOutletTemplatesRead Call to super to allow for caching
+  DcimPowerOutletTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimPowerOutletTemplatesRead(params *DcimPowerOutletTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -4422,7 +4844,7 @@ func (a *Client) DcimPowerOutletTemplatesRead(params *DcimPowerOutletTemplatesRe
 }
 
 /*
-DcimPowerOutletTemplatesUpdate dcim power outlet templates update API
+  DcimPowerOutletTemplatesUpdate dcim power outlet templates update API
 */
 func (a *Client) DcimPowerOutletTemplatesUpdate(params *DcimPowerOutletTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletTemplatesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -4457,7 +4879,7 @@ func (a *Client) DcimPowerOutletTemplatesUpdate(params *DcimPowerOutletTemplates
 }
 
 /*
-DcimPowerOutletsCreate dcim power outlets create API
+  DcimPowerOutletsCreate dcim power outlets create API
 */
 func (a *Client) DcimPowerOutletsCreate(params *DcimPowerOutletsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -4492,7 +4914,7 @@ func (a *Client) DcimPowerOutletsCreate(params *DcimPowerOutletsCreateParams, au
 }
 
 /*
-DcimPowerOutletsDelete dcim power outlets delete API
+  DcimPowerOutletsDelete dcim power outlets delete API
 */
 func (a *Client) DcimPowerOutletsDelete(params *DcimPowerOutletsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -4527,7 +4949,7 @@ func (a *Client) DcimPowerOutletsDelete(params *DcimPowerOutletsDeleteParams, au
 }
 
 /*
-DcimPowerOutletsList Call to super to allow for caching
+  DcimPowerOutletsList Call to super to allow for caching
 */
 func (a *Client) DcimPowerOutletsList(params *DcimPowerOutletsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsListOK, error) {
 	// TODO: Validate the params before sending
@@ -4562,7 +4984,7 @@ func (a *Client) DcimPowerOutletsList(params *DcimPowerOutletsListParams, authIn
 }
 
 /*
-DcimPowerOutletsPartialUpdate dcim power outlets partial update API
+  DcimPowerOutletsPartialUpdate dcim power outlets partial update API
 */
 func (a *Client) DcimPowerOutletsPartialUpdate(params *DcimPowerOutletsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -4597,7 +5019,7 @@ func (a *Client) DcimPowerOutletsPartialUpdate(params *DcimPowerOutletsPartialUp
 }
 
 /*
-DcimPowerOutletsRead Call to super to allow for caching
+  DcimPowerOutletsRead Call to super to allow for caching
 */
 func (a *Client) DcimPowerOutletsRead(params *DcimPowerOutletsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -4632,7 +5054,7 @@ func (a *Client) DcimPowerOutletsRead(params *DcimPowerOutletsReadParams, authIn
 }
 
 /*
-DcimPowerOutletsTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+  DcimPowerOutletsTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
 */
 func (a *Client) DcimPowerOutletsTrace(params *DcimPowerOutletsTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsTraceOK, error) {
 	// TODO: Validate the params before sending
@@ -4667,7 +5089,7 @@ func (a *Client) DcimPowerOutletsTrace(params *DcimPowerOutletsTraceParams, auth
 }
 
 /*
-DcimPowerOutletsUpdate dcim power outlets update API
+  DcimPowerOutletsUpdate dcim power outlets update API
 */
 func (a *Client) DcimPowerOutletsUpdate(params *DcimPowerOutletsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerOutletsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -4702,7 +5124,7 @@ func (a *Client) DcimPowerOutletsUpdate(params *DcimPowerOutletsUpdateParams, au
 }
 
 /*
-DcimPowerPanelsCreate dcim power panels create API
+  DcimPowerPanelsCreate dcim power panels create API
 */
 func (a *Client) DcimPowerPanelsCreate(params *DcimPowerPanelsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -4737,7 +5159,7 @@ func (a *Client) DcimPowerPanelsCreate(params *DcimPowerPanelsCreateParams, auth
 }
 
 /*
-DcimPowerPanelsDelete dcim power panels delete API
+  DcimPowerPanelsDelete dcim power panels delete API
 */
 func (a *Client) DcimPowerPanelsDelete(params *DcimPowerPanelsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -4772,7 +5194,7 @@ func (a *Client) DcimPowerPanelsDelete(params *DcimPowerPanelsDeleteParams, auth
 }
 
 /*
-DcimPowerPanelsList Call to super to allow for caching
+  DcimPowerPanelsList Call to super to allow for caching
 */
 func (a *Client) DcimPowerPanelsList(params *DcimPowerPanelsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsListOK, error) {
 	// TODO: Validate the params before sending
@@ -4807,7 +5229,7 @@ func (a *Client) DcimPowerPanelsList(params *DcimPowerPanelsListParams, authInfo
 }
 
 /*
-DcimPowerPanelsPartialUpdate dcim power panels partial update API
+  DcimPowerPanelsPartialUpdate dcim power panels partial update API
 */
 func (a *Client) DcimPowerPanelsPartialUpdate(params *DcimPowerPanelsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -4842,7 +5264,7 @@ func (a *Client) DcimPowerPanelsPartialUpdate(params *DcimPowerPanelsPartialUpda
 }
 
 /*
-DcimPowerPanelsRead Call to super to allow for caching
+  DcimPowerPanelsRead Call to super to allow for caching
 */
 func (a *Client) DcimPowerPanelsRead(params *DcimPowerPanelsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -4877,7 +5299,7 @@ func (a *Client) DcimPowerPanelsRead(params *DcimPowerPanelsReadParams, authInfo
 }
 
 /*
-DcimPowerPanelsUpdate dcim power panels update API
+  DcimPowerPanelsUpdate dcim power panels update API
 */
 func (a *Client) DcimPowerPanelsUpdate(params *DcimPowerPanelsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPanelsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -4912,7 +5334,7 @@ func (a *Client) DcimPowerPanelsUpdate(params *DcimPowerPanelsUpdateParams, auth
 }
 
 /*
-DcimPowerPortTemplatesCreate dcim power port templates create API
+  DcimPowerPortTemplatesCreate dcim power port templates create API
 */
 func (a *Client) DcimPowerPortTemplatesCreate(params *DcimPowerPortTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -4947,7 +5369,7 @@ func (a *Client) DcimPowerPortTemplatesCreate(params *DcimPowerPortTemplatesCrea
 }
 
 /*
-DcimPowerPortTemplatesDelete dcim power port templates delete API
+  DcimPowerPortTemplatesDelete dcim power port templates delete API
 */
 func (a *Client) DcimPowerPortTemplatesDelete(params *DcimPowerPortTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -4982,7 +5404,7 @@ func (a *Client) DcimPowerPortTemplatesDelete(params *DcimPowerPortTemplatesDele
 }
 
 /*
-DcimPowerPortTemplatesList Call to super to allow for caching
+  DcimPowerPortTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimPowerPortTemplatesList(params *DcimPowerPortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -5017,7 +5439,7 @@ func (a *Client) DcimPowerPortTemplatesList(params *DcimPowerPortTemplatesListPa
 }
 
 /*
-DcimPowerPortTemplatesPartialUpdate dcim power port templates partial update API
+  DcimPowerPortTemplatesPartialUpdate dcim power port templates partial update API
 */
 func (a *Client) DcimPowerPortTemplatesPartialUpdate(params *DcimPowerPortTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -5052,7 +5474,7 @@ func (a *Client) DcimPowerPortTemplatesPartialUpdate(params *DcimPowerPortTempla
 }
 
 /*
-DcimPowerPortTemplatesRead Call to super to allow for caching
+  DcimPowerPortTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimPowerPortTemplatesRead(params *DcimPowerPortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -5087,7 +5509,7 @@ func (a *Client) DcimPowerPortTemplatesRead(params *DcimPowerPortTemplatesReadPa
 }
 
 /*
-DcimPowerPortTemplatesUpdate dcim power port templates update API
+  DcimPowerPortTemplatesUpdate dcim power port templates update API
 */
 func (a *Client) DcimPowerPortTemplatesUpdate(params *DcimPowerPortTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortTemplatesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -5122,7 +5544,7 @@ func (a *Client) DcimPowerPortTemplatesUpdate(params *DcimPowerPortTemplatesUpda
 }
 
 /*
-DcimPowerPortsCreate dcim power ports create API
+  DcimPowerPortsCreate dcim power ports create API
 */
 func (a *Client) DcimPowerPortsCreate(params *DcimPowerPortsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -5157,7 +5579,7 @@ func (a *Client) DcimPowerPortsCreate(params *DcimPowerPortsCreateParams, authIn
 }
 
 /*
-DcimPowerPortsDelete dcim power ports delete API
+  DcimPowerPortsDelete dcim power ports delete API
 */
 func (a *Client) DcimPowerPortsDelete(params *DcimPowerPortsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -5192,7 +5614,7 @@ func (a *Client) DcimPowerPortsDelete(params *DcimPowerPortsDeleteParams, authIn
 }
 
 /*
-DcimPowerPortsList Call to super to allow for caching
+  DcimPowerPortsList Call to super to allow for caching
 */
 func (a *Client) DcimPowerPortsList(params *DcimPowerPortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsListOK, error) {
 	// TODO: Validate the params before sending
@@ -5227,7 +5649,7 @@ func (a *Client) DcimPowerPortsList(params *DcimPowerPortsListParams, authInfo r
 }
 
 /*
-DcimPowerPortsPartialUpdate dcim power ports partial update API
+  DcimPowerPortsPartialUpdate dcim power ports partial update API
 */
 func (a *Client) DcimPowerPortsPartialUpdate(params *DcimPowerPortsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -5262,7 +5684,7 @@ func (a *Client) DcimPowerPortsPartialUpdate(params *DcimPowerPortsPartialUpdate
 }
 
 /*
-DcimPowerPortsRead Call to super to allow for caching
+  DcimPowerPortsRead Call to super to allow for caching
 */
 func (a *Client) DcimPowerPortsRead(params *DcimPowerPortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -5297,7 +5719,7 @@ func (a *Client) DcimPowerPortsRead(params *DcimPowerPortsReadParams, authInfo r
 }
 
 /*
-DcimPowerPortsTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+  DcimPowerPortsTrace Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
 */
 func (a *Client) DcimPowerPortsTrace(params *DcimPowerPortsTraceParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsTraceOK, error) {
 	// TODO: Validate the params before sending
@@ -5332,7 +5754,7 @@ func (a *Client) DcimPowerPortsTrace(params *DcimPowerPortsTraceParams, authInfo
 }
 
 /*
-DcimPowerPortsUpdate dcim power ports update API
+  DcimPowerPortsUpdate dcim power ports update API
 */
 func (a *Client) DcimPowerPortsUpdate(params *DcimPowerPortsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimPowerPortsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -5367,7 +5789,7 @@ func (a *Client) DcimPowerPortsUpdate(params *DcimPowerPortsUpdateParams, authIn
 }
 
 /*
-DcimRackGroupsCreate dcim rack groups create API
+  DcimRackGroupsCreate dcim rack groups create API
 */
 func (a *Client) DcimRackGroupsCreate(params *DcimRackGroupsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -5402,7 +5824,7 @@ func (a *Client) DcimRackGroupsCreate(params *DcimRackGroupsCreateParams, authIn
 }
 
 /*
-DcimRackGroupsDelete dcim rack groups delete API
+  DcimRackGroupsDelete dcim rack groups delete API
 */
 func (a *Client) DcimRackGroupsDelete(params *DcimRackGroupsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -5437,7 +5859,7 @@ func (a *Client) DcimRackGroupsDelete(params *DcimRackGroupsDeleteParams, authIn
 }
 
 /*
-DcimRackGroupsList Call to super to allow for caching
+  DcimRackGroupsList Call to super to allow for caching
 */
 func (a *Client) DcimRackGroupsList(params *DcimRackGroupsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsListOK, error) {
 	// TODO: Validate the params before sending
@@ -5472,7 +5894,7 @@ func (a *Client) DcimRackGroupsList(params *DcimRackGroupsListParams, authInfo r
 }
 
 /*
-DcimRackGroupsPartialUpdate dcim rack groups partial update API
+  DcimRackGroupsPartialUpdate dcim rack groups partial update API
 */
 func (a *Client) DcimRackGroupsPartialUpdate(params *DcimRackGroupsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -5507,7 +5929,7 @@ func (a *Client) DcimRackGroupsPartialUpdate(params *DcimRackGroupsPartialUpdate
 }
 
 /*
-DcimRackGroupsRead Call to super to allow for caching
+  DcimRackGroupsRead Call to super to allow for caching
 */
 func (a *Client) DcimRackGroupsRead(params *DcimRackGroupsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -5542,7 +5964,7 @@ func (a *Client) DcimRackGroupsRead(params *DcimRackGroupsReadParams, authInfo r
 }
 
 /*
-DcimRackGroupsUpdate dcim rack groups update API
+  DcimRackGroupsUpdate dcim rack groups update API
 */
 func (a *Client) DcimRackGroupsUpdate(params *DcimRackGroupsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackGroupsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -5577,7 +5999,7 @@ func (a *Client) DcimRackGroupsUpdate(params *DcimRackGroupsUpdateParams, authIn
 }
 
 /*
-DcimRackReservationsCreate dcim rack reservations create API
+  DcimRackReservationsCreate dcim rack reservations create API
 */
 func (a *Client) DcimRackReservationsCreate(params *DcimRackReservationsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -5612,7 +6034,7 @@ func (a *Client) DcimRackReservationsCreate(params *DcimRackReservationsCreatePa
 }
 
 /*
-DcimRackReservationsDelete dcim rack reservations delete API
+  DcimRackReservationsDelete dcim rack reservations delete API
 */
 func (a *Client) DcimRackReservationsDelete(params *DcimRackReservationsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -5647,7 +6069,7 @@ func (a *Client) DcimRackReservationsDelete(params *DcimRackReservationsDeletePa
 }
 
 /*
-DcimRackReservationsList Call to super to allow for caching
+  DcimRackReservationsList Call to super to allow for caching
 */
 func (a *Client) DcimRackReservationsList(params *DcimRackReservationsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsListOK, error) {
 	// TODO: Validate the params before sending
@@ -5682,7 +6104,7 @@ func (a *Client) DcimRackReservationsList(params *DcimRackReservationsListParams
 }
 
 /*
-DcimRackReservationsPartialUpdate dcim rack reservations partial update API
+  DcimRackReservationsPartialUpdate dcim rack reservations partial update API
 */
 func (a *Client) DcimRackReservationsPartialUpdate(params *DcimRackReservationsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -5717,7 +6139,7 @@ func (a *Client) DcimRackReservationsPartialUpdate(params *DcimRackReservationsP
 }
 
 /*
-DcimRackReservationsRead Call to super to allow for caching
+  DcimRackReservationsRead Call to super to allow for caching
 */
 func (a *Client) DcimRackReservationsRead(params *DcimRackReservationsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -5752,7 +6174,7 @@ func (a *Client) DcimRackReservationsRead(params *DcimRackReservationsReadParams
 }
 
 /*
-DcimRackReservationsUpdate dcim rack reservations update API
+  DcimRackReservationsUpdate dcim rack reservations update API
 */
 func (a *Client) DcimRackReservationsUpdate(params *DcimRackReservationsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackReservationsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -5787,7 +6209,7 @@ func (a *Client) DcimRackReservationsUpdate(params *DcimRackReservationsUpdatePa
 }
 
 /*
-DcimRackRolesCreate dcim rack roles create API
+  DcimRackRolesCreate dcim rack roles create API
 */
 func (a *Client) DcimRackRolesCreate(params *DcimRackRolesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -5822,7 +6244,7 @@ func (a *Client) DcimRackRolesCreate(params *DcimRackRolesCreateParams, authInfo
 }
 
 /*
-DcimRackRolesDelete dcim rack roles delete API
+  DcimRackRolesDelete dcim rack roles delete API
 */
 func (a *Client) DcimRackRolesDelete(params *DcimRackRolesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -5857,7 +6279,7 @@ func (a *Client) DcimRackRolesDelete(params *DcimRackRolesDeleteParams, authInfo
 }
 
 /*
-DcimRackRolesList Call to super to allow for caching
+  DcimRackRolesList Call to super to allow for caching
 */
 func (a *Client) DcimRackRolesList(params *DcimRackRolesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesListOK, error) {
 	// TODO: Validate the params before sending
@@ -5892,7 +6314,7 @@ func (a *Client) DcimRackRolesList(params *DcimRackRolesListParams, authInfo run
 }
 
 /*
-DcimRackRolesPartialUpdate dcim rack roles partial update API
+  DcimRackRolesPartialUpdate dcim rack roles partial update API
 */
 func (a *Client) DcimRackRolesPartialUpdate(params *DcimRackRolesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -5927,7 +6349,7 @@ func (a *Client) DcimRackRolesPartialUpdate(params *DcimRackRolesPartialUpdatePa
 }
 
 /*
-DcimRackRolesRead Call to super to allow for caching
+  DcimRackRolesRead Call to super to allow for caching
 */
 func (a *Client) DcimRackRolesRead(params *DcimRackRolesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -5962,7 +6384,7 @@ func (a *Client) DcimRackRolesRead(params *DcimRackRolesReadParams, authInfo run
 }
 
 /*
-DcimRackRolesUpdate dcim rack roles update API
+  DcimRackRolesUpdate dcim rack roles update API
 */
 func (a *Client) DcimRackRolesUpdate(params *DcimRackRolesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRackRolesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -5997,7 +6419,7 @@ func (a *Client) DcimRackRolesUpdate(params *DcimRackRolesUpdateParams, authInfo
 }
 
 /*
-DcimRacksCreate dcim racks create API
+  DcimRacksCreate dcim racks create API
 */
 func (a *Client) DcimRacksCreate(params *DcimRacksCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -6032,7 +6454,7 @@ func (a *Client) DcimRacksCreate(params *DcimRacksCreateParams, authInfo runtime
 }
 
 /*
-DcimRacksDelete dcim racks delete API
+  DcimRacksDelete dcim racks delete API
 */
 func (a *Client) DcimRacksDelete(params *DcimRacksDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -6067,7 +6489,7 @@ func (a *Client) DcimRacksDelete(params *DcimRacksDeleteParams, authInfo runtime
 }
 
 /*
-DcimRacksElevation Rack elevation representing the list of rack units. Also supports rendering the elevation as an SVG.
+  DcimRacksElevation Rack elevation representing the list of rack units. Also supports rendering the elevation as an SVG.
 */
 func (a *Client) DcimRacksElevation(params *DcimRacksElevationParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksElevationOK, error) {
 	// TODO: Validate the params before sending
@@ -6102,7 +6524,7 @@ func (a *Client) DcimRacksElevation(params *DcimRacksElevationParams, authInfo r
 }
 
 /*
-DcimRacksList Call to super to allow for caching
+  DcimRacksList Call to super to allow for caching
 */
 func (a *Client) DcimRacksList(params *DcimRacksListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksListOK, error) {
 	// TODO: Validate the params before sending
@@ -6137,7 +6559,7 @@ func (a *Client) DcimRacksList(params *DcimRacksListParams, authInfo runtime.Cli
 }
 
 /*
-DcimRacksPartialUpdate dcim racks partial update API
+  DcimRacksPartialUpdate dcim racks partial update API
 */
 func (a *Client) DcimRacksPartialUpdate(params *DcimRacksPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -6172,7 +6594,7 @@ func (a *Client) DcimRacksPartialUpdate(params *DcimRacksPartialUpdateParams, au
 }
 
 /*
-DcimRacksRead Call to super to allow for caching
+  DcimRacksRead Call to super to allow for caching
 */
 func (a *Client) DcimRacksRead(params *DcimRacksReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksReadOK, error) {
 	// TODO: Validate the params before sending
@@ -6207,7 +6629,7 @@ func (a *Client) DcimRacksRead(params *DcimRacksReadParams, authInfo runtime.Cli
 }
 
 /*
-DcimRacksUnits List rack units (by rack)
+  DcimRacksUnits List rack units (by rack)
 */
 func (a *Client) DcimRacksUnits(params *DcimRacksUnitsParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksUnitsOK, error) {
 	// TODO: Validate the params before sending
@@ -6242,7 +6664,7 @@ func (a *Client) DcimRacksUnits(params *DcimRacksUnitsParams, authInfo runtime.C
 }
 
 /*
-DcimRacksUpdate dcim racks update API
+  DcimRacksUpdate dcim racks update API
 */
 func (a *Client) DcimRacksUpdate(params *DcimRacksUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRacksUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -6277,7 +6699,7 @@ func (a *Client) DcimRacksUpdate(params *DcimRacksUpdateParams, authInfo runtime
 }
 
 /*
-DcimRearPortTemplatesCreate dcim rear port templates create API
+  DcimRearPortTemplatesCreate dcim rear port templates create API
 */
 func (a *Client) DcimRearPortTemplatesCreate(params *DcimRearPortTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -6312,7 +6734,7 @@ func (a *Client) DcimRearPortTemplatesCreate(params *DcimRearPortTemplatesCreate
 }
 
 /*
-DcimRearPortTemplatesDelete dcim rear port templates delete API
+  DcimRearPortTemplatesDelete dcim rear port templates delete API
 */
 func (a *Client) DcimRearPortTemplatesDelete(params *DcimRearPortTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -6347,7 +6769,7 @@ func (a *Client) DcimRearPortTemplatesDelete(params *DcimRearPortTemplatesDelete
 }
 
 /*
-DcimRearPortTemplatesList Call to super to allow for caching
+  DcimRearPortTemplatesList Call to super to allow for caching
 */
 func (a *Client) DcimRearPortTemplatesList(params *DcimRearPortTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -6382,7 +6804,7 @@ func (a *Client) DcimRearPortTemplatesList(params *DcimRearPortTemplatesListPara
 }
 
 /*
-DcimRearPortTemplatesPartialUpdate dcim rear port templates partial update API
+  DcimRearPortTemplatesPartialUpdate dcim rear port templates partial update API
 */
 func (a *Client) DcimRearPortTemplatesPartialUpdate(params *DcimRearPortTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -6417,7 +6839,7 @@ func (a *Client) DcimRearPortTemplatesPartialUpdate(params *DcimRearPortTemplate
 }
 
 /*
-DcimRearPortTemplatesRead Call to super to allow for caching
+  DcimRearPortTemplatesRead Call to super to allow for caching
 */
 func (a *Client) DcimRearPortTemplatesRead(params *DcimRearPortTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -6452,7 +6874,7 @@ func (a *Client) DcimRearPortTemplatesRead(params *DcimRearPortTemplatesReadPara
 }
 
 /*
-DcimRearPortTemplatesUpdate dcim rear port templates update API
+  DcimRearPortTemplatesUpdate dcim rear port templates update API
 */
 func (a *Client) DcimRearPortTemplatesUpdate(params *DcimRearPortTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortTemplatesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -6487,7 +6909,7 @@ func (a *Client) DcimRearPortTemplatesUpdate(params *DcimRearPortTemplatesUpdate
 }
 
 /*
-DcimRearPortsCreate dcim rear ports create API
+  DcimRearPortsCreate dcim rear ports create API
 */
 func (a *Client) DcimRearPortsCreate(params *DcimRearPortsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -6522,7 +6944,7 @@ func (a *Client) DcimRearPortsCreate(params *DcimRearPortsCreateParams, authInfo
 }
 
 /*
-DcimRearPortsDelete dcim rear ports delete API
+  DcimRearPortsDelete dcim rear ports delete API
 */
 func (a *Client) DcimRearPortsDelete(params *DcimRearPortsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -6557,7 +6979,7 @@ func (a *Client) DcimRearPortsDelete(params *DcimRearPortsDeleteParams, authInfo
 }
 
 /*
-DcimRearPortsList Call to super to allow for caching
+  DcimRearPortsList Call to super to allow for caching
 */
 func (a *Client) DcimRearPortsList(params *DcimRearPortsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsListOK, error) {
 	// TODO: Validate the params before sending
@@ -6592,7 +7014,7 @@ func (a *Client) DcimRearPortsList(params *DcimRearPortsListParams, authInfo run
 }
 
 /*
-DcimRearPortsPartialUpdate dcim rear ports partial update API
+  DcimRearPortsPartialUpdate dcim rear ports partial update API
 */
 func (a *Client) DcimRearPortsPartialUpdate(params *DcimRearPortsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -6627,7 +7049,7 @@ func (a *Client) DcimRearPortsPartialUpdate(params *DcimRearPortsPartialUpdatePa
 }
 
 /*
-DcimRearPortsRead Call to super to allow for caching
+  DcimRearPortsRead Call to super to allow for caching
 */
 func (a *Client) DcimRearPortsRead(params *DcimRearPortsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -6662,7 +7084,7 @@ func (a *Client) DcimRearPortsRead(params *DcimRearPortsReadParams, authInfo run
 }
 
 /*
-DcimRearPortsUpdate dcim rear ports update API
+  DcimRearPortsUpdate dcim rear ports update API
 */
 func (a *Client) DcimRearPortsUpdate(params *DcimRearPortsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRearPortsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -6697,7 +7119,7 @@ func (a *Client) DcimRearPortsUpdate(params *DcimRearPortsUpdateParams, authInfo
 }
 
 /*
-DcimRegionsCreate dcim regions create API
+  DcimRegionsCreate dcim regions create API
 */
 func (a *Client) DcimRegionsCreate(params *DcimRegionsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -6732,7 +7154,7 @@ func (a *Client) DcimRegionsCreate(params *DcimRegionsCreateParams, authInfo run
 }
 
 /*
-DcimRegionsDelete dcim regions delete API
+  DcimRegionsDelete dcim regions delete API
 */
 func (a *Client) DcimRegionsDelete(params *DcimRegionsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -6767,7 +7189,7 @@ func (a *Client) DcimRegionsDelete(params *DcimRegionsDeleteParams, authInfo run
 }
 
 /*
-DcimRegionsList Call to super to allow for caching
+  DcimRegionsList Call to super to allow for caching
 */
 func (a *Client) DcimRegionsList(params *DcimRegionsListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsListOK, error) {
 	// TODO: Validate the params before sending
@@ -6802,7 +7224,7 @@ func (a *Client) DcimRegionsList(params *DcimRegionsListParams, authInfo runtime
 }
 
 /*
-DcimRegionsPartialUpdate dcim regions partial update API
+  DcimRegionsPartialUpdate dcim regions partial update API
 */
 func (a *Client) DcimRegionsPartialUpdate(params *DcimRegionsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -6837,7 +7259,7 @@ func (a *Client) DcimRegionsPartialUpdate(params *DcimRegionsPartialUpdateParams
 }
 
 /*
-DcimRegionsRead Call to super to allow for caching
+  DcimRegionsRead Call to super to allow for caching
 */
 func (a *Client) DcimRegionsRead(params *DcimRegionsReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -6872,7 +7294,7 @@ func (a *Client) DcimRegionsRead(params *DcimRegionsReadParams, authInfo runtime
 }
 
 /*
-DcimRegionsUpdate dcim regions update API
+  DcimRegionsUpdate dcim regions update API
 */
 func (a *Client) DcimRegionsUpdate(params *DcimRegionsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimRegionsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -6907,7 +7329,7 @@ func (a *Client) DcimRegionsUpdate(params *DcimRegionsUpdateParams, authInfo run
 }
 
 /*
-DcimSitesCreate dcim sites create API
+  DcimSitesCreate dcim sites create API
 */
 func (a *Client) DcimSitesCreate(params *DcimSitesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -6942,7 +7364,7 @@ func (a *Client) DcimSitesCreate(params *DcimSitesCreateParams, authInfo runtime
 }
 
 /*
-DcimSitesDelete dcim sites delete API
+  DcimSitesDelete dcim sites delete API
 */
 func (a *Client) DcimSitesDelete(params *DcimSitesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -6977,7 +7399,7 @@ func (a *Client) DcimSitesDelete(params *DcimSitesDeleteParams, authInfo runtime
 }
 
 /*
-DcimSitesGraphs A convenience method for rendering graphs for a particular site.
+  DcimSitesGraphs A convenience method for rendering graphs for a particular site.
 */
 func (a *Client) DcimSitesGraphs(params *DcimSitesGraphsParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesGraphsOK, error) {
 	// TODO: Validate the params before sending
@@ -7012,7 +7434,7 @@ func (a *Client) DcimSitesGraphs(params *DcimSitesGraphsParams, authInfo runtime
 }
 
 /*
-DcimSitesList Call to super to allow for caching
+  DcimSitesList Call to super to allow for caching
 */
 func (a *Client) DcimSitesList(params *DcimSitesListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesListOK, error) {
 	// TODO: Validate the params before sending
@@ -7047,7 +7469,7 @@ func (a *Client) DcimSitesList(params *DcimSitesListParams, authInfo runtime.Cli
 }
 
 /*
-DcimSitesPartialUpdate dcim sites partial update API
+  DcimSitesPartialUpdate dcim sites partial update API
 */
 func (a *Client) DcimSitesPartialUpdate(params *DcimSitesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -7082,7 +7504,7 @@ func (a *Client) DcimSitesPartialUpdate(params *DcimSitesPartialUpdateParams, au
 }
 
 /*
-DcimSitesRead Call to super to allow for caching
+  DcimSitesRead Call to super to allow for caching
 */
 func (a *Client) DcimSitesRead(params *DcimSitesReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -7117,7 +7539,7 @@ func (a *Client) DcimSitesRead(params *DcimSitesReadParams, authInfo runtime.Cli
 }
 
 /*
-DcimSitesUpdate dcim sites update API
+  DcimSitesUpdate dcim sites update API
 */
 func (a *Client) DcimSitesUpdate(params *DcimSitesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimSitesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -7152,7 +7574,7 @@ func (a *Client) DcimSitesUpdate(params *DcimSitesUpdateParams, authInfo runtime
 }
 
 /*
-DcimVirtualChassisCreate dcim virtual chassis create API
+  DcimVirtualChassisCreate dcim virtual chassis create API
 */
 func (a *Client) DcimVirtualChassisCreate(params *DcimVirtualChassisCreateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -7187,7 +7609,7 @@ func (a *Client) DcimVirtualChassisCreate(params *DcimVirtualChassisCreateParams
 }
 
 /*
-DcimVirtualChassisDelete dcim virtual chassis delete API
+  DcimVirtualChassisDelete dcim virtual chassis delete API
 */
 func (a *Client) DcimVirtualChassisDelete(params *DcimVirtualChassisDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -7222,7 +7644,7 @@ func (a *Client) DcimVirtualChassisDelete(params *DcimVirtualChassisDeleteParams
 }
 
 /*
-DcimVirtualChassisList Call to super to allow for caching
+  DcimVirtualChassisList Call to super to allow for caching
 */
 func (a *Client) DcimVirtualChassisList(params *DcimVirtualChassisListParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisListOK, error) {
 	// TODO: Validate the params before sending
@@ -7257,7 +7679,7 @@ func (a *Client) DcimVirtualChassisList(params *DcimVirtualChassisListParams, au
 }
 
 /*
-DcimVirtualChassisPartialUpdate dcim virtual chassis partial update API
+  DcimVirtualChassisPartialUpdate dcim virtual chassis partial update API
 */
 func (a *Client) DcimVirtualChassisPartialUpdate(params *DcimVirtualChassisPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -7292,7 +7714,7 @@ func (a *Client) DcimVirtualChassisPartialUpdate(params *DcimVirtualChassisParti
 }
 
 /*
-DcimVirtualChassisRead Call to super to allow for caching
+  DcimVirtualChassisRead Call to super to allow for caching
 */
 func (a *Client) DcimVirtualChassisRead(params *DcimVirtualChassisReadParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisReadOK, error) {
 	// TODO: Validate the params before sending
@@ -7327,7 +7749,7 @@ func (a *Client) DcimVirtualChassisRead(params *DcimVirtualChassisReadParams, au
 }
 
 /*
-DcimVirtualChassisUpdate dcim virtual chassis update API
+  DcimVirtualChassisUpdate dcim virtual chassis update API
 */
 func (a *Client) DcimVirtualChassisUpdate(params *DcimVirtualChassisUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*DcimVirtualChassisUpdateOK, error) {
 	// TODO: Validate the params before sending

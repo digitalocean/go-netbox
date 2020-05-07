@@ -23,14 +23,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // IPAddress IP address
+//
 // swagger:model IPAddress
 type IPAddress struct {
 
@@ -407,6 +407,7 @@ func (m *IPAddress) UnmarshalBinary(b []byte) error {
 }
 
 // IPAddressFamily Family
+//
 // swagger:model IPAddressFamily
 type IPAddressFamily struct {
 
@@ -474,6 +475,7 @@ func (m *IPAddressFamily) UnmarshalBinary(b []byte) error {
 }
 
 // IPAddressRole Role
+//
 // swagger:model IPAddressRole
 type IPAddressRole struct {
 
@@ -541,6 +543,7 @@ func (m *IPAddressRole) UnmarshalBinary(b []byte) error {
 }
 
 // IPAddressStatus Status
+//
 // swagger:model IPAddressStatus
 type IPAddressStatus struct {
 

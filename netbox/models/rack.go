@@ -23,14 +23,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Rack rack
+//
 // swagger:model Rack
 type Rack struct {
 
@@ -530,6 +530,7 @@ func (m *Rack) UnmarshalBinary(b []byte) error {
 }
 
 // RackOuterUnit Outer unit
+//
 // swagger:model RackOuterUnit
 type RackOuterUnit struct {
 
@@ -597,6 +598,7 @@ func (m *RackOuterUnit) UnmarshalBinary(b []byte) error {
 }
 
 // RackStatus Status
+//
 // swagger:model RackStatus
 type RackStatus struct {
 
@@ -664,6 +666,7 @@ func (m *RackStatus) UnmarshalBinary(b []byte) error {
 }
 
 // RackType Type
+//
 // swagger:model RackType
 type RackType struct {
 
@@ -731,6 +734,7 @@ func (m *RackType) UnmarshalBinary(b []byte) error {
 }
 
 // RackWidth Width
+//
 // swagger:model RackWidth
 type RackWidth struct {
 

@@ -21,14 +21,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // ObjectChange object change
+//
 // swagger:model ObjectChange
 type ObjectChange struct {
 
@@ -225,6 +225,7 @@ func (m *ObjectChange) UnmarshalBinary(b []byte) error {
 }
 
 // ObjectChangeAction Action
+//
 // swagger:model ObjectChangeAction
 type ObjectChangeAction struct {
 

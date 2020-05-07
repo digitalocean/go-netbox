@@ -24,12 +24,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new extras API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -41,8 +40,95 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientService is the interface for Client methods
+type ClientService interface {
+	ExtrasChoicesList(params *ExtrasChoicesListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasChoicesListOK, error)
+
+	ExtrasChoicesRead(params *ExtrasChoicesReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasChoicesReadOK, error)
+
+	ExtrasCustomFieldChoicesList(params *ExtrasCustomFieldChoicesListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasCustomFieldChoicesListOK, error)
+
+	ExtrasCustomFieldChoicesRead(params *ExtrasCustomFieldChoicesReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasCustomFieldChoicesReadOK, error)
+
+	ExtrasConfigContextsCreate(params *ExtrasConfigContextsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasConfigContextsCreateCreated, error)
+
+	ExtrasConfigContextsDelete(params *ExtrasConfigContextsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasConfigContextsDeleteNoContent, error)
+
+	ExtrasConfigContextsList(params *ExtrasConfigContextsListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasConfigContextsListOK, error)
+
+	ExtrasConfigContextsPartialUpdate(params *ExtrasConfigContextsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasConfigContextsPartialUpdateOK, error)
+
+	ExtrasConfigContextsRead(params *ExtrasConfigContextsReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasConfigContextsReadOK, error)
+
+	ExtrasConfigContextsUpdate(params *ExtrasConfigContextsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasConfigContextsUpdateOK, error)
+
+	ExtrasExportTemplatesCreate(params *ExtrasExportTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasExportTemplatesCreateCreated, error)
+
+	ExtrasExportTemplatesDelete(params *ExtrasExportTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasExportTemplatesDeleteNoContent, error)
+
+	ExtrasExportTemplatesList(params *ExtrasExportTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasExportTemplatesListOK, error)
+
+	ExtrasExportTemplatesPartialUpdate(params *ExtrasExportTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasExportTemplatesPartialUpdateOK, error)
+
+	ExtrasExportTemplatesRead(params *ExtrasExportTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasExportTemplatesReadOK, error)
+
+	ExtrasExportTemplatesUpdate(params *ExtrasExportTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasExportTemplatesUpdateOK, error)
+
+	ExtrasGraphsCreate(params *ExtrasGraphsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasGraphsCreateCreated, error)
+
+	ExtrasGraphsDelete(params *ExtrasGraphsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasGraphsDeleteNoContent, error)
+
+	ExtrasGraphsList(params *ExtrasGraphsListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasGraphsListOK, error)
+
+	ExtrasGraphsPartialUpdate(params *ExtrasGraphsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasGraphsPartialUpdateOK, error)
+
+	ExtrasGraphsRead(params *ExtrasGraphsReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasGraphsReadOK, error)
+
+	ExtrasGraphsUpdate(params *ExtrasGraphsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasGraphsUpdateOK, error)
+
+	ExtrasImageAttachmentsCreate(params *ExtrasImageAttachmentsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasImageAttachmentsCreateCreated, error)
+
+	ExtrasImageAttachmentsDelete(params *ExtrasImageAttachmentsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasImageAttachmentsDeleteNoContent, error)
+
+	ExtrasImageAttachmentsList(params *ExtrasImageAttachmentsListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasImageAttachmentsListOK, error)
+
+	ExtrasImageAttachmentsPartialUpdate(params *ExtrasImageAttachmentsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasImageAttachmentsPartialUpdateOK, error)
+
+	ExtrasImageAttachmentsRead(params *ExtrasImageAttachmentsReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasImageAttachmentsReadOK, error)
+
+	ExtrasImageAttachmentsUpdate(params *ExtrasImageAttachmentsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasImageAttachmentsUpdateOK, error)
+
+	ExtrasObjectChangesList(params *ExtrasObjectChangesListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasObjectChangesListOK, error)
+
+	ExtrasObjectChangesRead(params *ExtrasObjectChangesReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasObjectChangesReadOK, error)
+
+	ExtrasReportsList(params *ExtrasReportsListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasReportsListOK, error)
+
+	ExtrasReportsRead(params *ExtrasReportsReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasReportsReadOK, error)
+
+	ExtrasReportsRun(params *ExtrasReportsRunParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasReportsRunCreated, error)
+
+	ExtrasScriptsList(params *ExtrasScriptsListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasScriptsListOK, error)
+
+	ExtrasScriptsRead(params *ExtrasScriptsReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasScriptsReadOK, error)
+
+	ExtrasTagsCreate(params *ExtrasTagsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasTagsCreateCreated, error)
+
+	ExtrasTagsDelete(params *ExtrasTagsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasTagsDeleteNoContent, error)
+
+	ExtrasTagsList(params *ExtrasTagsListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasTagsListOK, error)
+
+	ExtrasTagsPartialUpdate(params *ExtrasTagsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasTagsPartialUpdateOK, error)
+
+	ExtrasTagsRead(params *ExtrasTagsReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasTagsReadOK, error)
+
+	ExtrasTagsUpdate(params *ExtrasTagsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasTagsUpdateOK, error)
+
+	SetTransport(transport runtime.ClientTransport)
+}
+
 /*
-ExtrasChoicesList extras choices list API
+  ExtrasChoicesList extras choices list API
 */
 func (a *Client) ExtrasChoicesList(params *ExtrasChoicesListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasChoicesListOK, error) {
 	// TODO: Validate the params before sending
@@ -77,7 +163,7 @@ func (a *Client) ExtrasChoicesList(params *ExtrasChoicesListParams, authInfo run
 }
 
 /*
-ExtrasChoicesRead extras choices read API
+  ExtrasChoicesRead extras choices read API
 */
 func (a *Client) ExtrasChoicesRead(params *ExtrasChoicesReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasChoicesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -112,7 +198,7 @@ func (a *Client) ExtrasChoicesRead(params *ExtrasChoicesReadParams, authInfo run
 }
 
 /*
-ExtrasCustomFieldChoicesList extras custom field choices list API
+  ExtrasCustomFieldChoicesList extras custom field choices list API
 */
 func (a *Client) ExtrasCustomFieldChoicesList(params *ExtrasCustomFieldChoicesListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasCustomFieldChoicesListOK, error) {
 	// TODO: Validate the params before sending
@@ -147,7 +233,7 @@ func (a *Client) ExtrasCustomFieldChoicesList(params *ExtrasCustomFieldChoicesLi
 }
 
 /*
-ExtrasCustomFieldChoicesRead extras custom field choices read API
+  ExtrasCustomFieldChoicesRead extras custom field choices read API
 */
 func (a *Client) ExtrasCustomFieldChoicesRead(params *ExtrasCustomFieldChoicesReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasCustomFieldChoicesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -182,7 +268,7 @@ func (a *Client) ExtrasCustomFieldChoicesRead(params *ExtrasCustomFieldChoicesRe
 }
 
 /*
-ExtrasConfigContextsCreate extras config contexts create API
+  ExtrasConfigContextsCreate extras config contexts create API
 */
 func (a *Client) ExtrasConfigContextsCreate(params *ExtrasConfigContextsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasConfigContextsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -217,7 +303,7 @@ func (a *Client) ExtrasConfigContextsCreate(params *ExtrasConfigContextsCreatePa
 }
 
 /*
-ExtrasConfigContextsDelete extras config contexts delete API
+  ExtrasConfigContextsDelete extras config contexts delete API
 */
 func (a *Client) ExtrasConfigContextsDelete(params *ExtrasConfigContextsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasConfigContextsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -252,7 +338,7 @@ func (a *Client) ExtrasConfigContextsDelete(params *ExtrasConfigContextsDeletePa
 }
 
 /*
-ExtrasConfigContextsList Call to super to allow for caching
+  ExtrasConfigContextsList Call to super to allow for caching
 */
 func (a *Client) ExtrasConfigContextsList(params *ExtrasConfigContextsListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasConfigContextsListOK, error) {
 	// TODO: Validate the params before sending
@@ -287,7 +373,7 @@ func (a *Client) ExtrasConfigContextsList(params *ExtrasConfigContextsListParams
 }
 
 /*
-ExtrasConfigContextsPartialUpdate extras config contexts partial update API
+  ExtrasConfigContextsPartialUpdate extras config contexts partial update API
 */
 func (a *Client) ExtrasConfigContextsPartialUpdate(params *ExtrasConfigContextsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasConfigContextsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -322,7 +408,7 @@ func (a *Client) ExtrasConfigContextsPartialUpdate(params *ExtrasConfigContextsP
 }
 
 /*
-ExtrasConfigContextsRead Call to super to allow for caching
+  ExtrasConfigContextsRead Call to super to allow for caching
 */
 func (a *Client) ExtrasConfigContextsRead(params *ExtrasConfigContextsReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasConfigContextsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -357,7 +443,7 @@ func (a *Client) ExtrasConfigContextsRead(params *ExtrasConfigContextsReadParams
 }
 
 /*
-ExtrasConfigContextsUpdate extras config contexts update API
+  ExtrasConfigContextsUpdate extras config contexts update API
 */
 func (a *Client) ExtrasConfigContextsUpdate(params *ExtrasConfigContextsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasConfigContextsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -392,7 +478,7 @@ func (a *Client) ExtrasConfigContextsUpdate(params *ExtrasConfigContextsUpdatePa
 }
 
 /*
-ExtrasExportTemplatesCreate extras export templates create API
+  ExtrasExportTemplatesCreate extras export templates create API
 */
 func (a *Client) ExtrasExportTemplatesCreate(params *ExtrasExportTemplatesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasExportTemplatesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -427,7 +513,7 @@ func (a *Client) ExtrasExportTemplatesCreate(params *ExtrasExportTemplatesCreate
 }
 
 /*
-ExtrasExportTemplatesDelete extras export templates delete API
+  ExtrasExportTemplatesDelete extras export templates delete API
 */
 func (a *Client) ExtrasExportTemplatesDelete(params *ExtrasExportTemplatesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasExportTemplatesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -462,7 +548,7 @@ func (a *Client) ExtrasExportTemplatesDelete(params *ExtrasExportTemplatesDelete
 }
 
 /*
-ExtrasExportTemplatesList Call to super to allow for caching
+  ExtrasExportTemplatesList Call to super to allow for caching
 */
 func (a *Client) ExtrasExportTemplatesList(params *ExtrasExportTemplatesListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasExportTemplatesListOK, error) {
 	// TODO: Validate the params before sending
@@ -497,7 +583,7 @@ func (a *Client) ExtrasExportTemplatesList(params *ExtrasExportTemplatesListPara
 }
 
 /*
-ExtrasExportTemplatesPartialUpdate extras export templates partial update API
+  ExtrasExportTemplatesPartialUpdate extras export templates partial update API
 */
 func (a *Client) ExtrasExportTemplatesPartialUpdate(params *ExtrasExportTemplatesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasExportTemplatesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -532,7 +618,7 @@ func (a *Client) ExtrasExportTemplatesPartialUpdate(params *ExtrasExportTemplate
 }
 
 /*
-ExtrasExportTemplatesRead Call to super to allow for caching
+  ExtrasExportTemplatesRead Call to super to allow for caching
 */
 func (a *Client) ExtrasExportTemplatesRead(params *ExtrasExportTemplatesReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasExportTemplatesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -567,7 +653,7 @@ func (a *Client) ExtrasExportTemplatesRead(params *ExtrasExportTemplatesReadPara
 }
 
 /*
-ExtrasExportTemplatesUpdate extras export templates update API
+  ExtrasExportTemplatesUpdate extras export templates update API
 */
 func (a *Client) ExtrasExportTemplatesUpdate(params *ExtrasExportTemplatesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasExportTemplatesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -602,7 +688,7 @@ func (a *Client) ExtrasExportTemplatesUpdate(params *ExtrasExportTemplatesUpdate
 }
 
 /*
-ExtrasGraphsCreate extras graphs create API
+  ExtrasGraphsCreate extras graphs create API
 */
 func (a *Client) ExtrasGraphsCreate(params *ExtrasGraphsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasGraphsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -637,7 +723,7 @@ func (a *Client) ExtrasGraphsCreate(params *ExtrasGraphsCreateParams, authInfo r
 }
 
 /*
-ExtrasGraphsDelete extras graphs delete API
+  ExtrasGraphsDelete extras graphs delete API
 */
 func (a *Client) ExtrasGraphsDelete(params *ExtrasGraphsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasGraphsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -672,7 +758,7 @@ func (a *Client) ExtrasGraphsDelete(params *ExtrasGraphsDeleteParams, authInfo r
 }
 
 /*
-ExtrasGraphsList Call to super to allow for caching
+  ExtrasGraphsList Call to super to allow for caching
 */
 func (a *Client) ExtrasGraphsList(params *ExtrasGraphsListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasGraphsListOK, error) {
 	// TODO: Validate the params before sending
@@ -707,7 +793,7 @@ func (a *Client) ExtrasGraphsList(params *ExtrasGraphsListParams, authInfo runti
 }
 
 /*
-ExtrasGraphsPartialUpdate extras graphs partial update API
+  ExtrasGraphsPartialUpdate extras graphs partial update API
 */
 func (a *Client) ExtrasGraphsPartialUpdate(params *ExtrasGraphsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasGraphsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -742,7 +828,7 @@ func (a *Client) ExtrasGraphsPartialUpdate(params *ExtrasGraphsPartialUpdatePara
 }
 
 /*
-ExtrasGraphsRead Call to super to allow for caching
+  ExtrasGraphsRead Call to super to allow for caching
 */
 func (a *Client) ExtrasGraphsRead(params *ExtrasGraphsReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasGraphsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -777,7 +863,7 @@ func (a *Client) ExtrasGraphsRead(params *ExtrasGraphsReadParams, authInfo runti
 }
 
 /*
-ExtrasGraphsUpdate extras graphs update API
+  ExtrasGraphsUpdate extras graphs update API
 */
 func (a *Client) ExtrasGraphsUpdate(params *ExtrasGraphsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasGraphsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -812,7 +898,7 @@ func (a *Client) ExtrasGraphsUpdate(params *ExtrasGraphsUpdateParams, authInfo r
 }
 
 /*
-ExtrasImageAttachmentsCreate extras image attachments create API
+  ExtrasImageAttachmentsCreate extras image attachments create API
 */
 func (a *Client) ExtrasImageAttachmentsCreate(params *ExtrasImageAttachmentsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasImageAttachmentsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -847,7 +933,7 @@ func (a *Client) ExtrasImageAttachmentsCreate(params *ExtrasImageAttachmentsCrea
 }
 
 /*
-ExtrasImageAttachmentsDelete extras image attachments delete API
+  ExtrasImageAttachmentsDelete extras image attachments delete API
 */
 func (a *Client) ExtrasImageAttachmentsDelete(params *ExtrasImageAttachmentsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasImageAttachmentsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -882,7 +968,7 @@ func (a *Client) ExtrasImageAttachmentsDelete(params *ExtrasImageAttachmentsDele
 }
 
 /*
-ExtrasImageAttachmentsList Call to super to allow for caching
+  ExtrasImageAttachmentsList Call to super to allow for caching
 */
 func (a *Client) ExtrasImageAttachmentsList(params *ExtrasImageAttachmentsListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasImageAttachmentsListOK, error) {
 	// TODO: Validate the params before sending
@@ -917,7 +1003,7 @@ func (a *Client) ExtrasImageAttachmentsList(params *ExtrasImageAttachmentsListPa
 }
 
 /*
-ExtrasImageAttachmentsPartialUpdate extras image attachments partial update API
+  ExtrasImageAttachmentsPartialUpdate extras image attachments partial update API
 */
 func (a *Client) ExtrasImageAttachmentsPartialUpdate(params *ExtrasImageAttachmentsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasImageAttachmentsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -952,7 +1038,7 @@ func (a *Client) ExtrasImageAttachmentsPartialUpdate(params *ExtrasImageAttachme
 }
 
 /*
-ExtrasImageAttachmentsRead Call to super to allow for caching
+  ExtrasImageAttachmentsRead Call to super to allow for caching
 */
 func (a *Client) ExtrasImageAttachmentsRead(params *ExtrasImageAttachmentsReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasImageAttachmentsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -987,7 +1073,7 @@ func (a *Client) ExtrasImageAttachmentsRead(params *ExtrasImageAttachmentsReadPa
 }
 
 /*
-ExtrasImageAttachmentsUpdate extras image attachments update API
+  ExtrasImageAttachmentsUpdate extras image attachments update API
 */
 func (a *Client) ExtrasImageAttachmentsUpdate(params *ExtrasImageAttachmentsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasImageAttachmentsUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -1022,7 +1108,7 @@ func (a *Client) ExtrasImageAttachmentsUpdate(params *ExtrasImageAttachmentsUpda
 }
 
 /*
-ExtrasObjectChangesList Retrieve a list of recent changes.
+  ExtrasObjectChangesList Retrieve a list of recent changes.
 */
 func (a *Client) ExtrasObjectChangesList(params *ExtrasObjectChangesListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasObjectChangesListOK, error) {
 	// TODO: Validate the params before sending
@@ -1057,7 +1143,7 @@ func (a *Client) ExtrasObjectChangesList(params *ExtrasObjectChangesListParams, 
 }
 
 /*
-ExtrasObjectChangesRead Retrieve a list of recent changes.
+  ExtrasObjectChangesRead Retrieve a list of recent changes.
 */
 func (a *Client) ExtrasObjectChangesRead(params *ExtrasObjectChangesReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasObjectChangesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1092,7 +1178,7 @@ func (a *Client) ExtrasObjectChangesRead(params *ExtrasObjectChangesReadParams, 
 }
 
 /*
-ExtrasReportsList Compile all reports and their related results (if any). Result data is deferred in the list view.
+  ExtrasReportsList Compile all reports and their related results (if any). Result data is deferred in the list view.
 */
 func (a *Client) ExtrasReportsList(params *ExtrasReportsListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasReportsListOK, error) {
 	// TODO: Validate the params before sending
@@ -1127,7 +1213,7 @@ func (a *Client) ExtrasReportsList(params *ExtrasReportsListParams, authInfo run
 }
 
 /*
-ExtrasReportsRead Retrieve a single Report identified as "<module>.<report>".
+  ExtrasReportsRead Retrieve a single Report identified as "<module>.<report>".
 */
 func (a *Client) ExtrasReportsRead(params *ExtrasReportsReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasReportsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1162,7 +1248,7 @@ func (a *Client) ExtrasReportsRead(params *ExtrasReportsReadParams, authInfo run
 }
 
 /*
-ExtrasReportsRun Run a Report and create a new ReportResult, overwriting any previous result for the Report.
+  ExtrasReportsRun Run a Report and create a new ReportResult, overwriting any previous result for the Report.
 */
 func (a *Client) ExtrasReportsRun(params *ExtrasReportsRunParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasReportsRunCreated, error) {
 	// TODO: Validate the params before sending
@@ -1197,7 +1283,7 @@ func (a *Client) ExtrasReportsRun(params *ExtrasReportsRunParams, authInfo runti
 }
 
 /*
-ExtrasScriptsList extras scripts list API
+  ExtrasScriptsList extras scripts list API
 */
 func (a *Client) ExtrasScriptsList(params *ExtrasScriptsListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasScriptsListOK, error) {
 	// TODO: Validate the params before sending
@@ -1232,7 +1318,7 @@ func (a *Client) ExtrasScriptsList(params *ExtrasScriptsListParams, authInfo run
 }
 
 /*
-ExtrasScriptsRead extras scripts read API
+  ExtrasScriptsRead extras scripts read API
 */
 func (a *Client) ExtrasScriptsRead(params *ExtrasScriptsReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasScriptsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1267,7 +1353,7 @@ func (a *Client) ExtrasScriptsRead(params *ExtrasScriptsReadParams, authInfo run
 }
 
 /*
-ExtrasTagsCreate extras tags create API
+  ExtrasTagsCreate extras tags create API
 */
 func (a *Client) ExtrasTagsCreate(params *ExtrasTagsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasTagsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -1302,7 +1388,7 @@ func (a *Client) ExtrasTagsCreate(params *ExtrasTagsCreateParams, authInfo runti
 }
 
 /*
-ExtrasTagsDelete extras tags delete API
+  ExtrasTagsDelete extras tags delete API
 */
 func (a *Client) ExtrasTagsDelete(params *ExtrasTagsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasTagsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -1337,7 +1423,7 @@ func (a *Client) ExtrasTagsDelete(params *ExtrasTagsDeleteParams, authInfo runti
 }
 
 /*
-ExtrasTagsList Call to super to allow for caching
+  ExtrasTagsList Call to super to allow for caching
 */
 func (a *Client) ExtrasTagsList(params *ExtrasTagsListParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasTagsListOK, error) {
 	// TODO: Validate the params before sending
@@ -1372,7 +1458,7 @@ func (a *Client) ExtrasTagsList(params *ExtrasTagsListParams, authInfo runtime.C
 }
 
 /*
-ExtrasTagsPartialUpdate extras tags partial update API
+  ExtrasTagsPartialUpdate extras tags partial update API
 */
 func (a *Client) ExtrasTagsPartialUpdate(params *ExtrasTagsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasTagsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -1407,7 +1493,7 @@ func (a *Client) ExtrasTagsPartialUpdate(params *ExtrasTagsPartialUpdateParams, 
 }
 
 /*
-ExtrasTagsRead Call to super to allow for caching
+  ExtrasTagsRead Call to super to allow for caching
 */
 func (a *Client) ExtrasTagsRead(params *ExtrasTagsReadParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasTagsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -1442,7 +1528,7 @@ func (a *Client) ExtrasTagsRead(params *ExtrasTagsReadParams, authInfo runtime.C
 }
 
 /*
-ExtrasTagsUpdate extras tags update API
+  ExtrasTagsUpdate extras tags update API
 */
 func (a *Client) ExtrasTagsUpdate(params *ExtrasTagsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*ExtrasTagsUpdateOK, error) {
 	// TODO: Validate the params before sending

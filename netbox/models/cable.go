@@ -23,14 +23,14 @@ package models
 import (
 	"encoding/json"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Cable cable
+//
 // swagger:model Cable
 type Cable struct {
 
@@ -389,6 +389,7 @@ func (m *Cable) UnmarshalBinary(b []byte) error {
 }
 
 // CableLengthUnit Length unit
+//
 // swagger:model CableLengthUnit
 type CableLengthUnit struct {
 
@@ -456,6 +457,7 @@ func (m *CableLengthUnit) UnmarshalBinary(b []byte) error {
 }
 
 // CableStatus Status
+//
 // swagger:model CableStatus
 type CableStatus struct {
 

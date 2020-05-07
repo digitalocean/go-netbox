@@ -24,14 +24,14 @@ import (
 	"encoding/json"
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // WritableVirtualMachineWithConfigContext writable virtual machine with config context
+//
 // swagger:model WritableVirtualMachineWithConfigContext
 type WritableVirtualMachineWithConfigContext struct {
 

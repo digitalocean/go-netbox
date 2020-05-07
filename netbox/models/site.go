@@ -23,14 +23,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Site site
+//
 // swagger:model Site
 type Site struct {
 
@@ -487,6 +487,7 @@ func (m *Site) UnmarshalBinary(b []byte) error {
 }
 
 // SiteStatus Status
+//
 // swagger:model SiteStatus
 type SiteStatus struct {
 

@@ -23,14 +23,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // FrontPort front port
+//
 // swagger:model FrontPort
 type FrontPort struct {
 
@@ -269,6 +269,7 @@ func (m *FrontPort) UnmarshalBinary(b []byte) error {
 }
 
 // FrontPortType Type
+//
 // swagger:model FrontPortType
 type FrontPortType struct {
 

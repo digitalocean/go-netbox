@@ -24,8 +24,7 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // DcimRackGroupsDeleteReader is a Reader for the DcimRackGroupsDelete structure.

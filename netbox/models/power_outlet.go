@@ -23,14 +23,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // PowerOutlet power outlet
+//
 // swagger:model PowerOutlet
 type PowerOutlet struct {
 
@@ -303,6 +303,7 @@ func (m *PowerOutlet) UnmarshalBinary(b []byte) error {
 }
 
 // PowerOutletConnectionStatus Connection status
+//
 // swagger:model PowerOutletConnectionStatus
 type PowerOutletConnectionStatus struct {
 
@@ -370,6 +371,7 @@ func (m *PowerOutletConnectionStatus) UnmarshalBinary(b []byte) error {
 }
 
 // PowerOutletFeedLeg Feed leg
+//
 // swagger:model PowerOutletFeedLeg
 type PowerOutletFeedLeg struct {
 
@@ -437,6 +439,7 @@ func (m *PowerOutletFeedLeg) UnmarshalBinary(b []byte) error {
 }
 
 // PowerOutletType Type
+//
 // swagger:model PowerOutletType
 type PowerOutletType struct {
 

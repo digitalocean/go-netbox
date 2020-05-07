@@ -25,10 +25,9 @@ import (
 	"io"
 
 	"github.com/go-openapi/runtime"
+	"github.com/go-openapi/strfmt"
 
-	strfmt "github.com/go-openapi/strfmt"
-
-	models "github.com/netbox-community/go-netbox/netbox/models"
+	"github.com/netbox-community/go-netbox/netbox/models"
 )
 
 // DcimFrontPortsPartialUpdateReader is a Reader for the DcimFrontPortsPartialUpdate structure.

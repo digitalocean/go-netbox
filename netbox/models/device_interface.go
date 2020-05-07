@@ -23,14 +23,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // DeviceInterface device interface
+//
 // swagger:model DeviceInterface
 type DeviceInterface struct {
 
@@ -406,6 +406,7 @@ func (m *DeviceInterface) UnmarshalBinary(b []byte) error {
 }
 
 // DeviceInterfaceConnectionStatus Connection status
+//
 // swagger:model DeviceInterfaceConnectionStatus
 type DeviceInterfaceConnectionStatus struct {
 
@@ -473,6 +474,7 @@ func (m *DeviceInterfaceConnectionStatus) UnmarshalBinary(b []byte) error {
 }
 
 // DeviceInterfaceMode Mode
+//
 // swagger:model DeviceInterfaceMode
 type DeviceInterfaceMode struct {
 
@@ -540,6 +542,7 @@ func (m *DeviceInterfaceMode) UnmarshalBinary(b []byte) error {
 }
 
 // DeviceInterfaceType Type
+//
 // swagger:model DeviceInterfaceType
 type DeviceInterfaceType struct {
 

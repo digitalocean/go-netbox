@@ -4021,6 +4021,13 @@
             "description": "The initial index from which to return the results.",
             "required": false,
             "type": "integer"
+          },
+          {
+            "name": "exclude",
+            "in": "query",
+            "description": "Optional parameter to exclude a field from the results.",
+            "required": false,
+            "type": "string"
           }
         ],
         "responses": {
@@ -19589,9 +19596,6 @@
         "config_context": {
           "title": "Config context",
           "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
           "readOnly": true
         },
         "created": {

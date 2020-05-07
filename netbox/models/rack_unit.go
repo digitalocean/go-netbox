@@ -21,14 +21,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // RackUnit rack unit
+//
 // swagger:model RackUnit
 type RackUnit struct {
 
@@ -138,6 +138,7 @@ func (m *RackUnit) UnmarshalBinary(b []byte) error {
 }
 
 // RackUnitFace Face
+//
 // swagger:model RackUnitFace
 type RackUnitFace struct {
 

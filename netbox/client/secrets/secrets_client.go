@@ -24,12 +24,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new secrets API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -41,8 +40,45 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientService is the interface for Client methods
+type ClientService interface {
+	SecretsChoicesList(params *SecretsChoicesListParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsChoicesListOK, error)
+
+	SecretsChoicesRead(params *SecretsChoicesReadParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsChoicesReadOK, error)
+
+	SecretsGenerateRsaKeyPairList(params *SecretsGenerateRsaKeyPairListParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsGenerateRsaKeyPairListOK, error)
+
+	SecretsGetSessionKeyCreate(params *SecretsGetSessionKeyCreateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsGetSessionKeyCreateCreated, error)
+
+	SecretsSecretRolesCreate(params *SecretsSecretRolesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesCreateCreated, error)
+
+	SecretsSecretRolesDelete(params *SecretsSecretRolesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesDeleteNoContent, error)
+
+	SecretsSecretRolesList(params *SecretsSecretRolesListParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesListOK, error)
+
+	SecretsSecretRolesPartialUpdate(params *SecretsSecretRolesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesPartialUpdateOK, error)
+
+	SecretsSecretRolesRead(params *SecretsSecretRolesReadParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesReadOK, error)
+
+	SecretsSecretRolesUpdate(params *SecretsSecretRolesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesUpdateOK, error)
+
+	SecretsSecretsCreate(params *SecretsSecretsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretsCreateCreated, error)
+
+	SecretsSecretsDelete(params *SecretsSecretsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretsDeleteNoContent, error)
+
+	SecretsSecretsList(params *SecretsSecretsListParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretsListOK, error)
+
+	SecretsSecretsPartialUpdate(params *SecretsSecretsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretsPartialUpdateOK, error)
+
+	SecretsSecretsRead(params *SecretsSecretsReadParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretsReadOK, error)
+
+	SecretsSecretsUpdate(params *SecretsSecretsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretsUpdateOK, error)
+
+	SetTransport(transport runtime.ClientTransport)
+}
+
 /*
-SecretsChoicesList secrets choices list API
+  SecretsChoicesList secrets choices list API
 */
 func (a *Client) SecretsChoicesList(params *SecretsChoicesListParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsChoicesListOK, error) {
 	// TODO: Validate the params before sending
@@ -77,7 +113,7 @@ func (a *Client) SecretsChoicesList(params *SecretsChoicesListParams, authInfo r
 }
 
 /*
-SecretsChoicesRead secrets choices read API
+  SecretsChoicesRead secrets choices read API
 */
 func (a *Client) SecretsChoicesRead(params *SecretsChoicesReadParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsChoicesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -112,9 +148,9 @@ func (a *Client) SecretsChoicesRead(params *SecretsChoicesReadParams, authInfo r
 }
 
 /*
-SecretsGenerateRsaKeyPairList this endpoint can be used to generate a new r s a key pair the keys are returned in p e m format
+  SecretsGenerateRsaKeyPairList this endpoint can be used to generate a new r s a key pair the keys are returned in p e m format
 
-{
+  {
         "public_key": "<public key>",
         "private_key": "<private key>"
     }
@@ -152,7 +188,7 @@ func (a *Client) SecretsGenerateRsaKeyPairList(params *SecretsGenerateRsaKeyPair
 }
 
 /*
-SecretsGetSessionKeyCreate Retrieve a temporary session key to use for encrypting and decrypting secrets via the API. The user's private RSA
+  SecretsGetSessionKeyCreate Retrieve a temporary session key to use for encrypting and decrypting secrets via the API. The user's private RSA
 key is POSTed with the name `private_key`. An example:
 
     curl -v -X POST -H "Authorization: Token <token>" -H "Accept: application/json; indent=4" \
@@ -200,7 +236,7 @@ func (a *Client) SecretsGetSessionKeyCreate(params *SecretsGetSessionKeyCreatePa
 }
 
 /*
-SecretsSecretRolesCreate secrets secret roles create API
+  SecretsSecretRolesCreate secrets secret roles create API
 */
 func (a *Client) SecretsSecretRolesCreate(params *SecretsSecretRolesCreateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -235,7 +271,7 @@ func (a *Client) SecretsSecretRolesCreate(params *SecretsSecretRolesCreateParams
 }
 
 /*
-SecretsSecretRolesDelete secrets secret roles delete API
+  SecretsSecretRolesDelete secrets secret roles delete API
 */
 func (a *Client) SecretsSecretRolesDelete(params *SecretsSecretRolesDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -270,7 +306,7 @@ func (a *Client) SecretsSecretRolesDelete(params *SecretsSecretRolesDeleteParams
 }
 
 /*
-SecretsSecretRolesList Call to super to allow for caching
+  SecretsSecretRolesList Call to super to allow for caching
 */
 func (a *Client) SecretsSecretRolesList(params *SecretsSecretRolesListParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesListOK, error) {
 	// TODO: Validate the params before sending
@@ -305,7 +341,7 @@ func (a *Client) SecretsSecretRolesList(params *SecretsSecretRolesListParams, au
 }
 
 /*
-SecretsSecretRolesPartialUpdate secrets secret roles partial update API
+  SecretsSecretRolesPartialUpdate secrets secret roles partial update API
 */
 func (a *Client) SecretsSecretRolesPartialUpdate(params *SecretsSecretRolesPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -340,7 +376,7 @@ func (a *Client) SecretsSecretRolesPartialUpdate(params *SecretsSecretRolesParti
 }
 
 /*
-SecretsSecretRolesRead Call to super to allow for caching
+  SecretsSecretRolesRead Call to super to allow for caching
 */
 func (a *Client) SecretsSecretRolesRead(params *SecretsSecretRolesReadParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesReadOK, error) {
 	// TODO: Validate the params before sending
@@ -375,7 +411,7 @@ func (a *Client) SecretsSecretRolesRead(params *SecretsSecretRolesReadParams, au
 }
 
 /*
-SecretsSecretRolesUpdate secrets secret roles update API
+  SecretsSecretRolesUpdate secrets secret roles update API
 */
 func (a *Client) SecretsSecretRolesUpdate(params *SecretsSecretRolesUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretRolesUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -410,7 +446,7 @@ func (a *Client) SecretsSecretRolesUpdate(params *SecretsSecretRolesUpdateParams
 }
 
 /*
-SecretsSecretsCreate secrets secrets create API
+  SecretsSecretsCreate secrets secrets create API
 */
 func (a *Client) SecretsSecretsCreate(params *SecretsSecretsCreateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretsCreateCreated, error) {
 	// TODO: Validate the params before sending
@@ -445,7 +481,7 @@ func (a *Client) SecretsSecretsCreate(params *SecretsSecretsCreateParams, authIn
 }
 
 /*
-SecretsSecretsDelete secrets secrets delete API
+  SecretsSecretsDelete secrets secrets delete API
 */
 func (a *Client) SecretsSecretsDelete(params *SecretsSecretsDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretsDeleteNoContent, error) {
 	// TODO: Validate the params before sending
@@ -480,7 +516,7 @@ func (a *Client) SecretsSecretsDelete(params *SecretsSecretsDeleteParams, authIn
 }
 
 /*
-SecretsSecretsList secrets secrets list API
+  SecretsSecretsList secrets secrets list API
 */
 func (a *Client) SecretsSecretsList(params *SecretsSecretsListParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretsListOK, error) {
 	// TODO: Validate the params before sending
@@ -515,7 +551,7 @@ func (a *Client) SecretsSecretsList(params *SecretsSecretsListParams, authInfo r
 }
 
 /*
-SecretsSecretsPartialUpdate secrets secrets partial update API
+  SecretsSecretsPartialUpdate secrets secrets partial update API
 */
 func (a *Client) SecretsSecretsPartialUpdate(params *SecretsSecretsPartialUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretsPartialUpdateOK, error) {
 	// TODO: Validate the params before sending
@@ -550,7 +586,7 @@ func (a *Client) SecretsSecretsPartialUpdate(params *SecretsSecretsPartialUpdate
 }
 
 /*
-SecretsSecretsRead secrets secrets read API
+  SecretsSecretsRead secrets secrets read API
 */
 func (a *Client) SecretsSecretsRead(params *SecretsSecretsReadParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretsReadOK, error) {
 	// TODO: Validate the params before sending
@@ -585,7 +621,7 @@ func (a *Client) SecretsSecretsRead(params *SecretsSecretsReadParams, authInfo r
 }
 
 /*
-SecretsSecretsUpdate secrets secrets update API
+  SecretsSecretsUpdate secrets secrets update API
 */
 func (a *Client) SecretsSecretsUpdate(params *SecretsSecretsUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*SecretsSecretsUpdateOK, error) {
 	// TODO: Validate the params before sending

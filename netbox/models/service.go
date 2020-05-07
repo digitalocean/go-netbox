@@ -23,14 +23,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Service service
+//
 // swagger:model Service
 type Service struct {
 
@@ -326,6 +326,7 @@ func (m *Service) UnmarshalBinary(b []byte) error {
 }
 
 // ServiceProtocol Protocol
+//
 // swagger:model ServiceProtocol
 type ServiceProtocol struct {
 

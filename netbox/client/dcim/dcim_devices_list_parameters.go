@@ -28,9 +28,8 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
-
-	strfmt "github.com/go-openapi/strfmt"
 )
 
 // NewDcimDevicesListParams creates a new DcimDevicesListParams object
@@ -95,6 +94,11 @@ type DcimDevicesListParams struct {
 	DeviceBays *string
 	/*DeviceTypeID*/
 	DeviceTypeID *string
+	/*Exclude
+	  Optional parameter to exclude a field from the results.
+
+	*/
+	Exclude *string
 	/*Face*/
 	Face *string
 	/*HasPrimaryIP*/
@@ -326,6 +330,17 @@ func (o *DcimDevicesListParams) WithDeviceTypeID(deviceTypeID *string) *DcimDevi
 // SetDeviceTypeID adds the deviceTypeId to the dcim devices list params
 func (o *DcimDevicesListParams) SetDeviceTypeID(deviceTypeID *string) {
 	o.DeviceTypeID = deviceTypeID
+}
+
+// WithExclude adds the exclude to the dcim devices list params
+func (o *DcimDevicesListParams) WithExclude(exclude *string) *DcimDevicesListParams {
+	o.SetExclude(exclude)
+	return o
+}
+
+// SetExclude adds the exclude to the dcim devices list params
+func (o *DcimDevicesListParams) SetExclude(exclude *string) {
+	o.Exclude = exclude
 }
 
 // WithFace adds the face to the dcim devices list params
@@ -947,6 +962,22 @@ func (o *DcimDevicesListParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		qDeviceTypeID := qrDeviceTypeID
 		if qDeviceTypeID != "" {
 			if err := r.SetQueryParam("device_type_id", qDeviceTypeID); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	if o.Exclude != nil {
+
+		// query param exclude
+		var qrExclude string
+		if o.Exclude != nil {
+			qrExclude = *o.Exclude
+		}
+		qExclude := qrExclude
+		if qExclude != "" {
+			if err := r.SetQueryParam("exclude", qExclude); err != nil {
 				return err
 			}
 		}

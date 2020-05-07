@@ -24,14 +24,14 @@ import (
 	"encoding/json"
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // PowerFeed power feed
+//
 // swagger:model PowerFeed
 type PowerFeed struct {
 
@@ -401,6 +401,7 @@ func (m *PowerFeed) UnmarshalBinary(b []byte) error {
 }
 
 // PowerFeedPhase Phase
+//
 // swagger:model PowerFeedPhase
 type PowerFeedPhase struct {
 
@@ -481,6 +482,7 @@ func (m *PowerFeedPhase) UnmarshalBinary(b []byte) error {
 }
 
 // PowerFeedStatus Status
+//
 // swagger:model PowerFeedStatus
 type PowerFeedStatus struct {
 
@@ -561,6 +563,7 @@ func (m *PowerFeedStatus) UnmarshalBinary(b []byte) error {
 }
 
 // PowerFeedSupply Supply
+//
 // swagger:model PowerFeedSupply
 type PowerFeedSupply struct {
 
@@ -641,6 +644,7 @@ func (m *PowerFeedSupply) UnmarshalBinary(b []byte) error {
 }
 
 // PowerFeedType Type
+//
 // swagger:model PowerFeedType
 type PowerFeedType struct {
 

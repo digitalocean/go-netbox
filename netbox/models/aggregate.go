@@ -23,14 +23,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Aggregate aggregate
+//
 // swagger:model Aggregate
 type Aggregate struct {
 
@@ -249,6 +249,7 @@ func (m *Aggregate) UnmarshalBinary(b []byte) error {
 }
 
 // AggregateFamily Family
+//
 // swagger:model AggregateFamily
 type AggregateFamily struct {
 
