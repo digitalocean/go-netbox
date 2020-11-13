@@ -43248,9 +43248,6 @@
         "assigned_object": {
           "title": "Assigned object",
           "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
           "readOnly": true
         },
         "nat_inside": {
@@ -43376,9 +43373,6 @@
         "assigned_object": {
           "title": "Assigned object",
           "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
           "readOnly": true
         },
         "nat_inside": {
